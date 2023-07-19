@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_main_home"
+        android:title="홈" />
+    <item
+        android:id="@+id/main_community"
+        android:enabled="true"
+        android:icon="@drawable/ic_main_community"
+        android:title="커뮤니티" />
+    <item
+        android:id="@+id/main_group_purchase"
+        android:enabled="true"
+        android:icon="@drawable/ic_main_group_purchase"
+        android:title="공동구매" />
+    <item
+        android:id="@+id/main_recipe"
+        android:enabled="true"
+        android:icon="@drawable/ic_main_recipe"
+        android:title="레시피" />
+    <item
+        android:id="@+id/main_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_main_profile"
+        android:title="MY" />
+</menu>
