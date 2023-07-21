@@ -12,7 +12,7 @@
         android:icon="@drawable/ic_main_community"
         android:title="커뮤니티" />
     <item
-        android:id="@+id/main_group_purchase"
+        android:id="@+id/groupBuyingFragment"
         android:enabled="true"
         android:icon="@drawable/ic_main_group_purchase"
         android:title="공동구매" />

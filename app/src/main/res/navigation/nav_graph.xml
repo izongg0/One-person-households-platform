@@ -8,4 +8,9 @@
         android:id="@+id/homeFragment"
         android:name="com.umc.one_person_households_platform.HomeFragment"
         android:label="HomeFragment" />
+
+    <fragment
+        android:id="@+id/groupBuyingFragment"
+        android:name="com.umc.one_person_households_platform.GroupBuyingFragment"
+        android:label="GroupBuyingFragment" />
 </navigation>
