@@ -14,4 +14,9 @@
         <item name="android:statusBarColor">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- ShapeImageView Style -->
+    <style name="ShapeAppearanceOverlay.App.CornerSize6Percent" parent="">
+        <item name="cornerSize">6%</item>
+    </style>
 </resources>
