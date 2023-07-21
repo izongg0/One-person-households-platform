@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="@drawable/add_post_category_radious">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="게시글의 주제를 선택해주세요"
+        android:layout_marginBottom="15dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="맛집이야기"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/btn_delicious"
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/btn_question"
+
+        android:text="질문있어요"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/btn_communicate"
+
+        android:textColor="@color/black"
+        android:text="대화해요"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/btn_share"
+
+        android:textColor="@color/black"
+        android:text="공유해요"/>
+
+</LinearLayout>

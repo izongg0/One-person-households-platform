@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".community.CommunitychatFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:contentInsetStart="0dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/btn_community_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_chatusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="딸기가 좋아"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/btn_community_alarm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/btn_community_hamburger"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/nav_division"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="공유해요" />
+
+        <TextView
+            android:id="@+id/tv_posttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='제목입니다.'
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="2km 이내" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/nav_division2"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="2dp"
+            android:background="#C4C4C4"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_division3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="10dp"
+        android:background="#C4C4C4"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#00ff0000"
+            android:src="@drawable/btn_community_camera" />
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:hint="메시지 보내기" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="#00ff0000"
+            android:src="@drawable/btn_community_send" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

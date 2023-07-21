@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/btn_community_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="닉네임"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="2km이내"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author" />
+
+    <TextView
+        android:id="@+id/tv_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text=" - "
+        app:layout_constraintStart_toEndOf="@+id/tv_distance"
+        app:layout_constraintTop_toTopOf="@+id/tv_distance" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="7/7 13:24"
+        app:layout_constraintStart_toEndOf="@+id/tv_bar"
+        app:layout_constraintTop_toTopOf="@+id/tv_distance" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="달린 댓글이 들어가는 부분 입니다."
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_distance"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bar" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/btn_empathybtn"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/btn_community_thumb"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="공감하기"
+        android:textColor="#747474"
+        android:textSize="15sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/btn_interestbtn"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/btn_community_heart"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="답글달기"
+        android:textColor="#747474"
+
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_empathybtn"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

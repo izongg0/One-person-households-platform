@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".community.NewpostFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        app:contentInsetStart="0dp"
+
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            >
+
+            <ImageView
+                android:src="@drawable/btn_community_arrow"
+                android:layout_marginLeft="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="커뮤니티 글쓰기"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/nav_division"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#C4C4C4"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="8dp"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="게시글의 주제를 선택해주세요"
+        android:id="@+id/tv_catergory"
+        android:layout_marginTop="8dp"
+        />
+    <!--    https://stickode.tistory.com/8-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제목"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="    제목을 입력해주세요"
+        android:id="@+id/et_edittitle"
+        android:background="@drawable/et_style"
+        android:layout_marginTop="8dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내용"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:hint="    내용을 입력해주세요"
+        android:id="@+id/et_editcontent"
+        android:background="@drawable/et_style"
+        android:layout_marginTop="8dp"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진(선택)"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        >
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="작성 완료"
+        android:background="@drawable/success_add_post"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+
+
+
+        />
+</LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
