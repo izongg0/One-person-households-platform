@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.umc.one_person_households_platform.HomeFragment"
+        android:name="com.umc.one_person_households_platform.view.home.HomeFragment"
         android:label="HomeFragment" />
 
     <fragment
         android:id="@+id/groupBuyingFragment"
-        android:name="com.umc.one_person_households_platform.GroupBuyingFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuying.GroupBuyingFragment"
         android:label="GroupBuyingFragment" />
 </navigation>
