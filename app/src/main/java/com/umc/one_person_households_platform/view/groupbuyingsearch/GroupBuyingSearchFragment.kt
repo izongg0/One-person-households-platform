@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.view.groupbuying
+package com.umc.one_person_households_platform.view.groupbuyingsearch
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
