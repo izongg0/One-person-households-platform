@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".GroupBuyingFragment">
+        tools:context=".view.groupbuying.GroupBuyingFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/abl_group_buying"
