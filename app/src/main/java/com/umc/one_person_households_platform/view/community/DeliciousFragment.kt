@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.community
+package com.umc.one_person_households_platform.view.community
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import com.umc.one_person_households_platform.R
 
 
-class ReportFragment : Fragment() {
-
+class DeliciousFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +23,7 @@ class ReportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_report, container, false)
+        return inflater.inflate(R.layout.fragment_delicious, container, false)
     }
 
 
