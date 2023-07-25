@@ -16,7 +16,8 @@ import com.umc.one_person_households_platform.model.CommunityPostlistDTO
 class CommunityFragment : Fragment() {
 
 
-    private lateinit var binding : FragmentCommunityBinding
+    private lateinit var
+            binding : FragmentCommunityBinding
     lateinit var postAdapter: CommunityCategoryAdapter
 
 
@@ -32,11 +33,11 @@ class CommunityFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_community,container,false)
 
-        var latestbtn = binding.btnLatest
-        var popularbtn = binding.btnPopular
-        var delicious = binding.btnDelicious
-        var question = binding.btnQuestion
-        var communicate = binding.btnCommunicate
+        var latestbtn = binding.rbLatest
+        var popularbtn = binding.rbPopular
+        var delicious = binding.rbDelicious
+        var question = binding.rbQuestion
+        var communicate = binding.rbCommunicate
 
         // 테스트 데이터
         var postList : ArrayList<CommunityPostlistDTO> = arrayListOf()
