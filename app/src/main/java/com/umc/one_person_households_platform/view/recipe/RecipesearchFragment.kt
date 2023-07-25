@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.recipe
+package com.umc.one_person_households_platform.view.recipe
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.umc.one_person_households_platform.R
 
 
-class ScrapFragment : Fragment() {
+class RecipesearchFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class ScrapFragment : Fragment() {
 
 
 
-        return inflater.inflate(R.layout.fragment_scrap, container, false)
+        return inflater.inflate(R.layout.fragment_recipesearch, container, false)
     }
 
 
