@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.community
+package com.umc.one_person_households_platform.view.recipe
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.umc.one_person_households_platform.R
 
 
-class QuestionFragment : Fragment() {
+class RecipesearchFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,10 @@ class QuestionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_question, container, false)
+
+
+
+        return inflater.inflate(R.layout.fragment_recipesearch, container, false)
     }
 
 

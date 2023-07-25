@@ -1,15 +1,15 @@
-package com.umc.one_person_households_platform
+package com.umc.one_person_households_platform.view.groupbuying
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingBinding
+import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingSearchBinding
 
-class GroupBuyingFragment : Fragment() {
+class GroupBuyingSearchFragment : Fragment() {
 
-    private var _binding: FragmentGroupBuyingBinding? = null
+    private var _binding: FragmentGroupBuyingSearchBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class GroupBuyingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupBuyingBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupBuyingSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 

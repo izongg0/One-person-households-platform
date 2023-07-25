@@ -1,15 +1,12 @@
-package com.umc.one_person_households_platform.community
+package com.umc.one_person_households_platform.view.community
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.umc.one_person_households_platform.R
-import com.umc.one_person_households_platform.databinding.FragmentNewpostcatergoryBinding
 
 // TODO: Rename parameter arguments, choose names that match
 
