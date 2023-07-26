@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.community
+package com.umc.one_person_households_platform.view.community
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
