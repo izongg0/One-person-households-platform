@@ -33,23 +33,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/iv_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/btn_group_buying_detail_share"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
             android:id="@+id/iv_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/btn_group_buying_detail_more"
-            app:layout_constraintEnd_toStartOf="@id/iv_share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/btn_group_buying_detail_share"
+            app:layout_constraintEnd_toStartOf="@id/iv_more"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
