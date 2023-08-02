@@ -1,15 +1,15 @@
-package com.umc.one_person_households_platform.view.groupbuyingchat
+package com.umc.one_person_households_platform.view.groupbuyingwrite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingChatQuestionUserBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingWriteCountBinding
 
-class GroupBuyingChatQuestionUserFragment : Fragment() {
+class GroupBuyingWriteCountFragment : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentGroupBuyingChatQuestionUserBinding? = null
+    private var _binding: FragmentGroupBuyingWriteCountBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class GroupBuyingChatQuestionUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupBuyingChatQuestionUserBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupBuyingWriteCountBinding.inflate(inflater, container, false)
         return binding.root
     }
 

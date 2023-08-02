@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingChatQuestionLeavingBinding
+import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingChatMoreWriterBinding
 
-class GroupBuyingChatQuestionLeavingFragment : Fragment() {
+class GroupBuyingChatMoreWriterFragment : Fragment() {
 
-    private var _binding: FragmentGroupBuyingChatQuestionLeavingBinding? = null
+    private var _binding: FragmentGroupBuyingChatMoreWriterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class GroupBuyingChatQuestionLeavingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupBuyingChatQuestionLeavingBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupBuyingChatMoreWriterBinding.inflate(inflater, container, false)
         return binding.root
     }
 

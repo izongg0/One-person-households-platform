@@ -1,15 +1,15 @@
-package com.umc.one_person_households_platform.view.groupbuyingdetail
+package com.umc.one_person_households_platform.view.groupbuyingwrite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingDetailDialogUserBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingWriteCategoryBinding
 
-class GroupBuyingDetailDialogUserFragment : Fragment() {
+class GroupBuyingWriteCategoryFragment : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentGroupBuyingDetailDialogUserBinding? = null
+    private var _binding: FragmentGroupBuyingWriteCategoryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class GroupBuyingDetailDialogUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupBuyingDetailDialogUserBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupBuyingWriteCategoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
