@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingCountBinding
+import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingWriteCategoryBinding
 
-class GroupBuyingCountFragment : BottomSheetDialogFragment() {
+class GroupBuyingWriteCategoryFragment : BottomSheetDialogFragment() {
 
-    private var _binding: FragmentGroupBuyingCountBinding? = null
+    private var _binding: FragmentGroupBuyingWriteCategoryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class GroupBuyingCountFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGroupBuyingCountBinding.inflate(inflater, container, false)
+        _binding = FragmentGroupBuyingWriteCategoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
