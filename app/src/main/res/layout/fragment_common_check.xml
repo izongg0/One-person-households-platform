@@ -5,37 +5,43 @@
 
     <data>
 
+        <import type="java.util.List" />
+
+        <variable
+            name="content"
+            type="List&lt;String>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="11dp"
-        tools:context=".view.groupbuyingchat.GroupBuyingChatWarningUserFragment">
+        android:background="@drawable/bg_common_dialog"
+        android:paddingBottom="11dp">
 
         <TextView
-            android:id="@+id/tv_question"
+            android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18sp"
             android:gravity="center"
-            android:text="마감 기한 전에는 거래 완료\n버튼을 누를 수 없습니다."
+            android:text="@{content[0]}"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="내용이 들어가면 됩니다.\n내용이 들어가면 됩니다." />
 
         <View
             android:id="@+id/view_1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:background="#D9D9D9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_question" />
+            app:layout_constraintTop_toBottomOf="@id/tv_content" />
 
         <TextView
             android:id="@+id/tv_check"
@@ -43,11 +49,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="닫기"
+            android:text="@{content[1]}"
             android:textColor="#3478F6"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_1" />
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            tools:text="내용입력" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
