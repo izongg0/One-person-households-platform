@@ -5,26 +5,28 @@
 
     <data>
 
+        <variable
+            name="content"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_group_buying_rounded"
-        android:paddingTop="25dp"
-        android:paddingBottom="25dp"
-        tools:context=".view.groupbuyingchat.GroupBuyingChatMoreUserFragment">
+        android:background="@drawable/bg_common_more">
 
         <TextView
-            android:id="@+id/tv_report"
+            android:id="@+id/tv_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:gravity="center"
-            android:text="신고하기"
+            android:text="@{content}"
             android:textColor="@color/black"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="신고하기" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
