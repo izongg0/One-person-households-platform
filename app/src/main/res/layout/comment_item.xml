@@ -15,8 +15,8 @@
         />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/btn_community_more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -94,9 +94,10 @@
         android:layout_width="75dp"
         android:layout_height="25dp"
         android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/btn_community_heart"
+        android:drawableLeft="@drawable/btn_community_chat_small"
         android:minWidth="0dp"
         android:minHeight="0dp"
+        android:background="@drawable/search_radious"
         android:text="답글달기"
         android:textColor="#747474"
 
