@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.community.PostdetailFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -268,7 +272,7 @@
 
 
         <TextView
-            android:id="@+id/btn_empathybtn"
+            android:id="@+id/tv_empathybtn"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_marginTop="18dp"
@@ -280,12 +284,12 @@
             android:text="공감하기"
             android:textColor="#747474"
             android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/btn_interestbtn"
+            app:layout_constraintEnd_toStartOf="@+id/tv_interestbtn"
             app:layout_constraintTop_toBottomOf="@+id/tv_postcontent" />
 
 
         <TextView
-            android:id="@+id/btn_interestbtn"
+            android:id="@+id/tv_interestbtn"
             android:layout_width="55dp"
             android:layout_height="30dp"
             android:layout_marginTop="18dp"
@@ -350,3 +354,5 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

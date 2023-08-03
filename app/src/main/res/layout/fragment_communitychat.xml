@@ -147,7 +147,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="#00ff0000"
-            android:src="@drawable/btn_community_camera" />
+            android:src="@drawable/btn_community_camera"
+            android:layout_marginRight="8dp"/>
         <EditText
             android:layout_width="280dp"
             android:layout_height="50dp"

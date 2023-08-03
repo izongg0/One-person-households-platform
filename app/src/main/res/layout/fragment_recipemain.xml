@@ -58,7 +58,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/btn_recipe_bookmark_non"
+                    android:src="@drawable/btn_recipe_bookmark_clicked"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -84,12 +84,57 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_category"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:layout_marginLeft="20dp"
+        android:id="@+id/rg_tab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_latest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab_bg_checked"
+            android:button="@null"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="최신순"
+            android:textColor="@drawable/btn_tab_fg_checked"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rb_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab_bg_checked"
+            android:button="@null"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="인기순"
+            android:textColor="@drawable/btn_tab_fg_checked"
+            android:textSize="12sp" />
+
+
+    </RadioGroup>
+
+
 
     <LinearLayout
         android:id="@+id/nav_division2"
