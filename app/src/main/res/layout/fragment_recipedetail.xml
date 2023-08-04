@@ -10,9 +10,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="64dp"
         app:contentInsetStart="0dp"
-        android:layout_marginTop="8dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,37 +24,40 @@
             <ImageView
                 android:layout_marginLeft="10dp"
                 android:id="@+id/item1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="16dp"
+                android:layout_height="24dp"
                 android:src="@drawable/btn_community_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:layout_marginLeft="15dp"
 
                 android:id="@+id/imageView3"
-                android:layout_width="40dp"
+                android:layout_width="24dp"
                 android:src="@drawable/btn_community_home"
-                android:layout_height="40dp"
+                android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/item1"
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView4"
                 android:src="@drawable/btn_community_share"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:layout_marginLeft="8dp"
+
                 android:src="@drawable/btn_community_more"
                 android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginRight="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +81,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
@@ -88,34 +90,37 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:text="[백종원의 요리비책] 버터간장계란밥"
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/btn_recipe_bookmark_clicked"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/btn_recipe_bookmark_non"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="검색한 재료: #달걀 #버터 #간장"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+
             android:src="@drawable/bg_recipe_testimg"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -123,8 +128,8 @@
     <LinearLayout
         android:id="@+id/nav_division2"
         android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="#C4C4C4"
+        android:layout_height="9dp"
+        android:background="#EAEAEA"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
@@ -132,8 +137,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_margin="15dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
         app:layout_constraintTop_toBottomOf="@+id/nav_division2"
         tools:layout_editor_absoluteX="15dp">
 
@@ -143,7 +148,7 @@
             android:layout_height="wrap_content"
             android:text="재료"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -161,11 +166,17 @@
                 android:layout_height="wrap_content"
                 android:text="[재료]"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"
+                />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+
+
+                />
 
         </LinearLayout>
 
@@ -181,19 +192,21 @@
                 android:layout_height="wrap_content"
                 android:text="[양념]"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/nav_division3"
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="#C4C4C4"
+        android:background="#EAEAEA"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +216,7 @@
         android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:layout_margin="15dp"
+        android:layout_margin="25dp"
         app:layout_constraintTop_toBottomOf="@+id/nav_division3"
         tools:layout_editor_absoluteX="15dp">
 
@@ -213,7 +226,7 @@
             android:layout_height="wrap_content"
             android:text="조리순서"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -223,6 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="vertical"
+            android:layout_marginLeft="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13">
 
@@ -231,7 +245,7 @@
                 android:layout_height="wrap_content"
                 android:text="1.올리브유와 파를 넣고 볶아줍니다."
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
 
 

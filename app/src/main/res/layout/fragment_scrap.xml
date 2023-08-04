@@ -7,48 +7,51 @@
     tools:context=".view.recipe.ScrapFragment">
 
     <androidx.appcompat.widget.Toolbar
+
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:contentInsetStart="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="55dp">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/btn_community_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="27dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="54dp"
+                android:layout_marginBottom="15dp"
                 android:text="스크랩한 레시피"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/btn_arrow_left"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
             <LinearLayout
                 android:id="@+id/nav_division"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#C4C4C4"
+                android:background="#EAEAEA"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -7,16 +7,16 @@
     <ImageView
         android:layout_marginTop="8dp"
         android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginLeft="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="10dp"
+        android:layout_height="20dp"
         android:src="@drawable/btn_community_more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,12 +24,12 @@
     <TextView
         android:id="@+id/tv_author"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:text="닉네임"
         android:layout_marginLeft="10dp"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         />
@@ -38,23 +38,29 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/tv_distance"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:text="2km이내"
+        android:textSize="11sp"
+
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/tv_author" />
 
     <TextView
         android:id="@+id/tv_bar"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:text=" - "
+        android:textSize="11sp"
+
         app:layout_constraintStart_toEndOf="@+id/tv_distance"
         app:layout_constraintTop_toTopOf="@+id/tv_distance" />
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:text="7/7 13:24"
+        android:textSize="11sp"
+
         app:layout_constraintStart_toEndOf="@+id/tv_bar"
         app:layout_constraintTop_toTopOf="@+id/tv_distance" />
 
@@ -62,26 +68,26 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6dp"
         android:text="달린 댓글이 들어가는 부분 입니다."
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tv_distance"
         app:layout_constraintTop_toBottomOf="@+id/tv_bar" />
 
     <TextView
         android:gravity="center"
         android:id="@+id/btn_empathybtn"
-        android:layout_width="75dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/btn_community_thumb"
         android:minWidth="0dp"
         android:minHeight="0dp"
         android:text="공감하기"
         android:textColor="#747474"
-        android:textSize="15sp"
-        android:layout_marginTop="8dp"
+        android:textSize="9sp"
+        android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -89,10 +95,11 @@
     <TextView
         android:layout_marginLeft="5dp"
         android:id="@+id/btn_interestbtn"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="9dp"
         android:gravity="center"
-        android:layout_width="75dp"
-        android:layout_height="25dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/btn_community_chat_small"
         android:minWidth="0dp"
@@ -101,7 +108,7 @@
         android:text="답글달기"
         android:textColor="#747474"
 
-        android:textSize="15sp"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/btn_empathybtn"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

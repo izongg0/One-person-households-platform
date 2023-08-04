@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunitySearchAdapter
@@ -44,6 +45,10 @@ class SearchFragment : Fragment() {
         binding.rvSearch.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSearch.adapter = adapter
 
+        binding.ivArrow.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_searchFragment_to_communityFragment)
+
+        }
 
         binding.etSearchArea.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
