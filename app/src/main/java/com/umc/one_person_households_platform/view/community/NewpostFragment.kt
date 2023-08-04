@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentNewpostBinding
 
@@ -60,6 +61,21 @@ class NewpostFragment : Fragment() {
                     isEditText1NotEmpty && isEditText2NotEmpty && isEditText3NotEmpty
 
             }
+        }
+        binding.tvAddbtn.setOnClickListener {
+
+            if(binding.tvAddbtn.isEnabled == true){
+
+            Navigation.findNavController(binding.root).navigate(R.id.action_newpostFragment_to_communityFragment)
+
+                //데이터 저장
+            }
+        }
+
+        binding.btnArrowBack.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_newpostFragment_to_communityFragment)
+
+
         }
         binding.etEditcontent.addTextChangedListener(textWatcher)
         binding.etEdittitle.addTextChangedListener(textWatcher)

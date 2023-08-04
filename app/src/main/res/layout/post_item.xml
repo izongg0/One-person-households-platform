@@ -28,9 +28,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="28dp"
             android:layout_height="20dp"
+            android:gravity="center"
             android:text="공지"
+            android:textSize="10sp"
+            android:background="@drawable/btn_tab_bg_checked"
             android:id="@+id/tv_category"/>
 
         <TextView
@@ -38,7 +41,7 @@
             android:layout_height="wrap_content"
             android:text='달걀 이렇게 하면 더 오래 먹을 수 있대요ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ'
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:id="@+id/tv_posttitle"/>
             <!--        글자수 제한 필요-->
 
@@ -52,36 +55,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:text="관리자"
-                android:id="@+id/tv_author"/>
+                android:id="@+id/tv_author"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text=" - " />
+                android:text=" - "
+                android:textSize="10dp"
+                android:textColor="@color/black"
+
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:text="1km이내"
-                android:id="@+id/tv_distance"/>
+                android:id="@+id/tv_distance"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text=" - " />
+                android:text=" - "
+                android:textSize="10dp"
+                android:textColor="@color/black"
+
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:text="3분 전"
-                android:id="@+id/tv_time"/>
+                android:id="@+id/tv_time"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+
+                />
 
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
-        android:layout_width="82dp"
-        android:layout_height="82dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"

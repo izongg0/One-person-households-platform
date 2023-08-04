@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
@@ -115,8 +116,18 @@ class CommunityFragment : Fragment() {
         }
 
 
+        binding.btnNewpost.setOnClickListener {
+
+            Navigation.findNavController(binding.root).navigate(R.id.action_communityFragment_to_newpostFragment)
+
+        }
 
 
+        binding.etSearchArea.setOnClickListener {
+
+            Navigation.findNavController(binding.root).navigate(R.id.action_communityFragment_to_searchFragment)
+
+        }
 
 
         return binding.root

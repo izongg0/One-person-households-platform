@@ -180,7 +180,8 @@
                     android:paddingBottom="5dp"
                     android:text="기타"
                     android:textColor="@drawable/btn_tab_fg_checked"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    />
             </RadioGroup>
         </HorizontalScrollView>
 

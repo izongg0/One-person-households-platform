@@ -13,4 +13,32 @@
         android:id="@+id/groupBuyingFragment"
         android:name="com.umc.one_person_households_platform.view.groupbuying.GroupBuyingFragment"
         android:label="GroupBuyingFragment" />
+
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.umc.one_person_households_platform.view.community.CommunityFragment"
+        android:label="CommunityFragment" >
+        <action
+            android:id="@+id/action_communityFragment_to_newpostFragment"
+            app:destination="@id/newpostFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newpostFragment"
+        android:name="com.umc.one_person_households_platform.view.community.NewpostFragment"
+        android:label="NewpostFragment" >
+        <action
+            android:id="@+id/action_newpostFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.umc.one_person_households_platform.view.community.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+    </fragment>
 </navigation>

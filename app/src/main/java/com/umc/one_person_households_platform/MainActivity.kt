@@ -20,4 +20,9 @@ class MainActivity : AppCompatActivity() {
         // BottomNavigationView 에게 NavController 설정
         binding.bnvMoveFragment.setupWithNavController(navHostFragment.navController)
     }
+
+
+
+
+
 }
