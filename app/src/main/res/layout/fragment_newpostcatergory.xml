@@ -1,62 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="25dp"
-    android:background="@drawable/add_post_category_radious">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <data>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="게시글의 주제를 선택해주세요"
-        android:layout_marginBottom="15dp"
-        />
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:paddingLeft="19dp"
+        android:paddingTop="27dp"
+        android:background="@drawable/add_post_category_radious">
 
-        <RadioButton
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="맛집이야기"
-            android:button="@null"
-            android:textSize="20sp"
-            android:textColor="@drawable/btn_tab_fg_checked"
-            android:layout_marginBottom="12dp"
-            />
-        <RadioButton
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="게시글의 주제를 선택해주세요"
+            android:layout_marginBottom="10dp" />
+
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="질문있어요"
-            android:button="@null"
-            android:textSize="20sp"
-            android:textColor="@drawable/btn_tab_fg_checked"
-            android:layout_marginBottom="12dp"
-            />
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="대화해요"
-            android:button="@null"
-            android:textSize="20sp"
-            android:textColor="@drawable/btn_tab_fg_checked"
-            android:layout_marginBottom="12dp"
-            />
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="공유해요"
-            android:button="@null"
-            android:textSize="20sp"
-            android:textColor="@drawable/btn_tab_fg_checked"
-            />
+            android:layout_height="wrap_content">
 
-    </RadioGroup>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="맛집이야기"
+                android:button="@null"
+                android:textSize="15sp"
+                android:textColor="@drawable/btn_category_select"
+                android:id="@+id/btn_delicious"
+                />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="질문있어요"
+                android:button="@null"
+                android:textSize="15sp"
+                android:textColor="@drawable/btn_category_select"
+                android:id="@+id/btn_question"
+                />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="대화해요"
+                android:button="@null"
+                android:textSize="15sp"
+                android:textColor="@drawable/btn_category_select"
+                android:id="@+id/btn_communicate"
+
+                />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="공유해요"
+                android:button="@null"
+                android:textSize="15sp"
+                android:id="@+id/btn_share"
+
+                android:textColor="@drawable/btn_category_select" />
+
+        </RadioGroup>
 
 
-
-</LinearLayout>
+    </LinearLayout>
+</layout>

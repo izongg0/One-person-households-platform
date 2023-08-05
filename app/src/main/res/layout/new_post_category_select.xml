@@ -25,8 +25,6 @@
         android:text="맛집이야기"
         android:layout_marginBottom="8dp"
         android:id="@+id/btn_delicious"
-
-
         />
     <TextView
         android:layout_width="match_parent"
@@ -52,7 +50,6 @@
         android:textSize="15sp"
         android:layout_marginBottom="8dp"
         android:id="@+id/btn_share"
-
         android:textColor="@color/black"
         android:text="공유해요"/>
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.model.CommunityPostlistDTO
@@ -29,6 +30,12 @@ class CommunityCategoryAdapter(var postlist : ArrayList<CommunityPostlistDTO>) :
         view.findViewById<TextView>(R.id.tv_posttitle).text = postlist[position].postName
         view.findViewById<TextView>(R.id.tv_author).text = postlist[position].author
         view.findViewById<TextView>(R.id.tv_posttitle).text = postlist[position].category
+
+        view.findViewById<TextView>(R.id.tv_posttitle).setOnClickListener {
+
+            Navigation.findNavController(view)
+                .navigate(R.id.action_communityFragment_to_postdetailFragment)
+        }
 
     }
 
