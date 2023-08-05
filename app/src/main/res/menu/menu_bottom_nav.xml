@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_main_home"
         android:title="홈" />
     <item
-        android:id="@+id/main_community"
+        android:id="@+id/communityFragment"
         android:enabled="true"
         android:icon="@drawable/ic_main_community"
         android:title="커뮤니티" />
@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_main_group_purchase"
         android:title="공동구매" />
     <item
-        android:id="@+id/main_recipe"
+        android:id="@+id/recipemainFragment"
         android:enabled="true"
         android:icon="@drawable/ic_main_recipe"
         android:title="레시피" />

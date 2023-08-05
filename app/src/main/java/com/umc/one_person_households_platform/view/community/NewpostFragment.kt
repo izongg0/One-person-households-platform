@@ -102,11 +102,11 @@ class NewpostFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            data?.data?.let { uri ->
-                val bitmap =
-                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
-                binding.ivPhoto.setImageBitmap(bitmap)
-            }
+//            data?.data?.let { uri ->
+//                val bitmap =
+//                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
+//                binding.ivPhoto.setImageBitmap(bitmap)
+//            }
         }
     }
 }

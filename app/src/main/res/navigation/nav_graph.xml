@@ -41,4 +41,8 @@
             android:id="@+id/action_searchFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/recipemainFragment"
+        android:name="com.umc.one_person_households_platform.view.recipe.RecipemainFragment"
+        android:label="RecipemainFragment" />
 </navigation>
