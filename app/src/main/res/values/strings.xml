@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">One-person-households-platform</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chatcommunity"><u>커뮤니티</u></string>
+    <string name="chatgroupby"><u>공동구매</u></string>
+
+
 </resources>
