@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_communityFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_postdetailFragment"
+            app:destination="@id/postdetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/newpostFragment"
@@ -45,4 +48,24 @@
         android:id="@+id/recipemainFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.RecipemainFragment"
         android:label="RecipemainFragment" />
+
+    <fragment
+        android:id="@+id/postdetailFragment"
+        android:name="com.umc.one_person_households_platform.view.community.PostdetailFragment"
+        android:label="PostdetailFragment" >
+        <action
+            android:id="@+id/action_postdetailFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_postdetailFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.umc.one_person_households_platform.view.community.ReportFragment"
+        android:label="ReportFragment" >
+        <action
+            android:id="@+id/action_reportFragment_to_postdetailFragment"
+            app:destination="@id/postdetailFragment" />
+    </fragment>
 </navigation>

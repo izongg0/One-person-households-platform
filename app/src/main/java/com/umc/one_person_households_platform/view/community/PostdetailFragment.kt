@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentPostdetailBinding
 
@@ -57,6 +58,20 @@ class PostdetailFragment : Fragment() {
         }
 
 
+        binding.ivMorebtn.setOnClickListener {
+
+            val orderBottomDialogFragment: PostMorebtnFragment = PostMorebtnFragment() {
+                when (it) {
+                    0 -> Navigation.findNavController(binding.root)
+                        .navigate(R.id.action_postdetailFragment_to_reportFragment)
+                    1 -> Navigation.findNavController(binding.root)
+                        .navigate(R.id.action_postdetailFragment_to_reportFragment)
+
+                }
+
+            }
+            orderBottomDialogFragment.show(parentFragmentManager, orderBottomDialogFragment.tag)
+        }
 
         return binding.root
     }

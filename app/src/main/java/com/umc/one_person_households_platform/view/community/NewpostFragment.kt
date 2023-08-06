@@ -1,6 +1,8 @@
 package com.umc.one_person_households_platform.view.community
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
@@ -9,6 +11,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -31,14 +35,13 @@ class NewpostFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_newpost, container, false)
 
-        binding.tvCatergory.setOnClickListener {
+        binding.llSelectCategory.setOnClickListener {
             val orderBottomDialogFragment: NewpostcatergoryFragment = NewpostcatergoryFragment() {
                 when (it) {
                     0 -> binding.tvCatergory.text = "맛집이야기"
                     1 -> binding.tvCatergory.text = "질문있어요"
                     2 -> binding.tvCatergory.text = "대화해요"
                     3 -> binding.tvCatergory.text = "공유해요"
-
                 }
             }
             orderBottomDialogFragment.show(parentFragmentManager, orderBottomDialogFragment.tag)
@@ -62,18 +65,37 @@ class NewpostFragment : Fragment() {
 
             }
         }
+        binding.tvCatergory.text == "게시글의 주제를 선택해주세요"
+
         binding.tvAddbtn.setOnClickListener {
 
-            if(binding.tvAddbtn.isEnabled == true){
-
-            Navigation.findNavController(binding.root).navigate(R.id.action_newpostFragment_to_communityFragment)
+            if (binding.tvAddbtn.isEnabled == true) {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_newpostFragment_to_communityFragment)
 
                 //데이터 저장
             }
+//            else if (binding.tvCatergory.text == "게시글의 주제를 선택해주세요") {
+//
+//                showAlert("주제를 선택해주세요")
+//
+//            } else if (binding.etEditcontent.text.isNullOrBlank()) {
+//                // 제목입력이 비어있을 때
+//
+//                showAlert("제목을 입력해주세요")
+//
+//
+//            } else if (binding.etEdittitle.text.isNullOrBlank()) {
+//                // 내용이 비어있을 때
+//                showAlert("내용을 5자 이상 입력해주세요.")
+//
+//
+//            }
         }
 
         binding.btnArrowBack.setOnClickListener {
-            Navigation.findNavController(binding.root).navigate(R.id.action_newpostFragment_to_communityFragment)
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_newpostFragment_to_communityFragment)
 
 
         }
@@ -90,6 +112,29 @@ class NewpostFragment : Fragment() {
         }
 
         return binding.root
+
+    }
+
+    private fun showAlert(alerttext : String) {
+
+//        val builder = AlertDialog.Builder(requireContext())
+//        AlertDialog.Builder(requireContext())
+//            .setTitle("$alerttext")
+//            .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int -> }
+//            .show()
+        val myLayout = layoutInflater.inflate(R.layout.fragment_common_check, null)
+        myLayout.findViewById<TextView>(R.id.tv_content).text = alerttext
+        myLayout.findViewById<TextView>(R.id.tv_check).text = "확인"
+
+        val build = AlertDialog.Builder(view?.context).apply {
+            setView(myLayout)
+        }
+        val dialog = build.create()
+        dialog.show()
+
+        myLayout.findViewById<TextView>(R.id.tv_check).setOnClickListener {
+            dialog.dismiss()
+        }
 
     }
 

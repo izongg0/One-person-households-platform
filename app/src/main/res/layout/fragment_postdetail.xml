@@ -51,7 +51,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                app:layout_constraintEnd_toStartOf="@+id/iv_morebtn"
                 android:src="@drawable/btn_community_share"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
                 android:layout_marginLeft="8dp"
 
                 android:src="@drawable/btn_community_more"
-                android:id="@+id/imageView4"
+                android:id="@+id/iv_morebtn"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginRight="10dp"
@@ -276,13 +276,13 @@
         <TextView
             android:id="@+id/tv_empathybtn"
             android:layout_width="80dp"
+            android:paddingLeft="12dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/btn_community_thumb"
             android:gravity="center"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
+
             android:text="공감하기"
             android:textColor="#747474"
             android:textSize="11sp"
@@ -297,6 +297,7 @@
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/btn_community_heart"
+            android:paddingLeft="8dp"
 
             android:gravity="center"
             android:text="관심"
