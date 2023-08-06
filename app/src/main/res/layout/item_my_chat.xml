@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="70dp"
+    android:layout_marginTop="8dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_mycontent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/chatting_my_send"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="안녕하세요 !"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전 09:20"
+        android:textColor="#8C8C8C"
+        android:textSize="10sp"
+        android:layout_marginRight="3dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
