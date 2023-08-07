@@ -1,0 +1,39 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@id/LoginFirstActivity">
+
+    <activity
+        android:id="@+id/LoginFirstActivity"
+        android:name="com.umc.one_person_households_platform.view.login.LoginFirstActivity"
+        android:label="Login First Fragment">
+
+        <action
+            android:id="@+id/action_LoginFirstActivity_to_signupActivity"
+            app:destination="@id/signupActivity" />
+
+        <action
+            android:id="@+id/action_LoginFirstActivity_to_loginFindIdFragment"
+            app:destination="@id/loginFindIdFragment" />
+
+        <action
+            android:id="@+id/action_LoginFirstActivity_to_loginFindPasswordFragment"
+            app:destination="@id/loginFindPasswordFragment" />
+    </activity>
+
+    <fragment
+        android:id="@+id/signupActivity"
+        android:name="com.umc.one_person_households_platform.view.signup.SignupActivity"
+        android:label="Signup Activity" />
+
+    <fragment
+        android:id="@+id/loginFindIdFragment"
+        android:name="com.umc.one_person_households_platform.view.login.LoginFindIdFragment"
+        android:label="Login Find ID Fragment" />
+
+    <fragment
+        android:id="@+id/loginFindPasswordFragment"
+        android:name="com.umc.one_person_households_platform.view.login.LoginFindPasswordFragment"
+        android:label="Login Find Password Fragment" />
+
+</navigation>

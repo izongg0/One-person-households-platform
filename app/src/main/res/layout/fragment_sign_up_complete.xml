@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/iv_signuplogo"
+        android:layout_width="284dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="86dp"
+        android:background="@drawable/ic_signup_completelogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="229dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="397dp"
+        android:text="자취생을 부탁해를 이용하기 전"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="35dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif-black"
+        android:text="먼저"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/textview1"
+        app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="55dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="38dp"
+        android:fontFamily="sans-serif"
+        android:text="내 장소"
+        android:textColor="#FFB629"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/textview2"
+        app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="125dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif-black"
+        android:text="를 인증해주세요!"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/textview3"
+        app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+    <TextView
+        android:id="@+id/tv_button"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="내 장소 인증하러 가기"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_login_button_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
