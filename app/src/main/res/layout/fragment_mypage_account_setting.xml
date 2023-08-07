@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="17dp"
+        android:src="@drawable/btn_mypage_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="147dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginLeft="109dp"
+        android:text="계정관리"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal|top"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="408dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_mypage_dividebox_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_line"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="17dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_idinfo"
+            app:layout_constraintTop_toTopOf="@+id/tv_idinfo">
+
+            <TextView
+                android:id="@+id/tv_idtext"
+                android:layout_width="104dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-black"
+                android:text="아이디"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_idinfo"
+                android:layout_width="322dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_edittext"
+                android:text="User1234"
+                android:textSize="13sp"
+                android:textColor="#C4C4C4"
+                android:gravity="center_vertical"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_idtext" />
+
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="104dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:text="비밀번호"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_idinfo"/>
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="225dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_edittext"
+                android:hint="Password"
+                android:inputType="textPassword"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_password" />
+
+            <TextView
+                android:id="@+id/tv_passwordchange"
+                android:layout_width="90dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="251dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_button_yellow_radius"
+                android:text="변경하기"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="#FFB629"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_password"/>
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="104dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:text="이메일"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_password"/>
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="225dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_edittext"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+            <TextView
+                android:id="@+id/tv_emailchange"
+                android:layout_width="90dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="251dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_button_yellow_radius"
+                android:text="변경하기"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="#FFB629"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_email"/>
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="104dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:text="닉네임"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_email"/>
+
+            <EditText
+                android:id="@+id/et_nickname"
+                android:layout_width="225dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_edittext"
+                android:hint="Nickname"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nickname" />
+
+            <TextView
+                android:id="@+id/tv_nicknamechange"
+                android:layout_width="90dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="251dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_mypage_button_yellow_radius"
+                android:text="변경하기"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="#FFB629"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nickname"
+                />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="50dp"
+        android:layout_height="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="297dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:text="탈퇴하기"
+        android:textSize="13sp"
+        android:gravity="right|top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
