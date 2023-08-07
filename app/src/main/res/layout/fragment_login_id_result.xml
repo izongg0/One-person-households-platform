@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/btn_login_close"
+        />
+
+    <TextView
+        android:id="@+id/resulttitle"
+        android:layout_width="322dp"
+        android:layout_height="71dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="30dp"
+        android:text="아이디 찾기 결과입니다.\n찾으신 아이디로 로그인해주세요."
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idresult"
+        android:layout_width="104dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
+        android:text="아이디 찾기 결과"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resulttitle"
+        />
+
+    <TextView
+        android:id="@+id/defaltid"
+        android:layout_width="227dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:text="umc2_***"
+        android:textColor="#FFB629"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idresult" />
+
+    <ImageView
+        android:id="@+id/smallline4"
+        android:layout_width="328dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/defaltid"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/bg_signup_dividebox"
+        />
+
+    <TextView
+        android:id="@+id/findpassword2"
+        android:layout_width="158dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/bg_login_button_white"
+        android:gravity="center_horizontal|top"
+        android:text="비밀번호 찾기"
+        android:textColor="#FFB629"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/loginbutton"
+        android:layout_width="158dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="193dp"
+        android:background="@drawable/bg_login_button_yellow"
+        android:gravity="center_horizontal|top"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
