@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginLeft="17dp"
+        android:src="@drawable/btn_mypage_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="147dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginLeft="109dp"
+        android:text="내가 참여한 공구"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal|top"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_line"
+        android:layout_width="408dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_mypage_dividebox_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+    <ScrollView
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_line">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="402dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_line" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

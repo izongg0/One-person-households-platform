@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="280dp"
+        android:layout_height="90dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="275dp">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:fontFamily="sans-serif-black"
+            android:text="그동안"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/textview2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            android:fontFamily="sans-serif"
+            android:text="자취생을 부탁해"
+            android:textColor="#FFB629"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/textview3"
+            app:layout_constraintStart_toEndOf="@+id/textview1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="30dp"
+            android:layout_height="45dp"
+            android:fontFamily="sans-serif-black"
+            android:text="를"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textview2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview4"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:fontFamily="sans-serif-black"
+            android:text="이용해주셔서 감사합니다."
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="@id/textview1"
+            app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_button"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="첫 화면 가기"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_mypage_yellow_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
