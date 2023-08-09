@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +29,7 @@
             android:layout_marginTop="44dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/bg_search"
+            android:drawableStart="@drawable/btn_search"
             android:drawablePadding="6dp"
             android:hint="검색어를 입력하세요"
             android:paddingStart="7dp"
@@ -38,7 +37,6 @@
             android:paddingBottom="9dp"
             android:textColorHint="#8C8C8C"
             android:textSize="17sp"
-            android:drawableStart="@drawable/btn_search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +84,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </layout>

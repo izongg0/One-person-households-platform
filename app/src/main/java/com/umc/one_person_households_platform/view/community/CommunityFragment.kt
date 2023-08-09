@@ -13,8 +13,6 @@ import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
 import com.umc.one_person_households_platform.databinding.FragmentCommunityBinding
 import com.umc.one_person_households_platform.model.CommunityDTO
-import com.umc.one_person_households_platform.model.CommunityPost
-import com.umc.one_person_households_platform.model.CommunityPostlistDTO
 import com.umc.one_person_households_platform.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -117,7 +115,6 @@ class CommunityFragment : Fragment() {
                     }
 
 
-                    // items를 RecyclerView Adapter에 전달하거나 다른 처리를 진행합니다.
                 } else {
                     Log.e("ApiError", "API 요청 실패: ${response.code()}")
                 }

@@ -11,16 +11,13 @@ import retrofit2.http.Query
 interface ApiClient {
 
     // 공동 구매 리스트 출력
-    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE1NjExMTksImV4cCI6MTY5MzAzMjM0OH0.BRwHtAtHh3evjLYacLLT5FZZNqGOLdubfsNLrSCLcJ8")
-
-
-
+    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE1Nzg2MjUsImV4cCI6MTY5MzA0OTg1NH0.PTnyiTpTf3vV-t9l_T63HYQC9fISO-C8COR8IkISgZY")
     @GET("/app/boards/community")
     fun getCommunity(
         @Query("category") query: String, @Query("limit") limit: Int // 검색어 파라미터
     ): Call<CommunityDTO>
 
-
+    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE1Nzg2MjUsImV4cCI6MTY5MzA0OTg1NH0.PTnyiTpTf3vV-t9l_T63HYQC9fISO-C8COR8IkISgZY")
     @GET("/app/boards/community/search")
     fun getCommunitySearch(
         @Query("query") query: String // 검색어 파라미터
