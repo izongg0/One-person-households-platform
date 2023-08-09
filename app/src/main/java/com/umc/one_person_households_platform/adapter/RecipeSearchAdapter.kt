@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.umc.one_person_households_platform.R
-import com.umc.one_person_households_platform.model.CommunityPostlistDTO
 import com.umc.one_person_households_platform.model.RecipeDTO
 
 class RecipeSearchAdapter : ListAdapter<RecipeDTO, RecipeSearchAdapter.PostViewHolder>(PostDiffCallback()) {

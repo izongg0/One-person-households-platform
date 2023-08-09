@@ -5,24 +5,14 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
     >
 
-    <LinearLayout
-        android:id="@+id/nav_division"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#C4C4C4"
 
-        >
-
-    </LinearLayout>
     <LinearLayout
         android:layout_marginLeft="10dp"
         android:id="@+id/linearLayout"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,6 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:gravity="center"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_marginBottom="5dp"
             android:text="공지"
             android:textSize="10sp"
             android:background="@drawable/btn_tab_bg_checked"
@@ -44,7 +37,9 @@
             android:text='달걀 이렇게 하면 더 오래 먹을 수 있대요ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ'
             android:textColor="@color/black"
             android:textSize="14dp"
-            android:id="@+id/tv_posttitle"/>
+            android:id="@+id/tv_posttitle"
+            android:layout_marginBottom="7dp"
+            />
             <!--        글자수 제한 필요-->
 
 
@@ -107,8 +102,20 @@
     <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/nav_division"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4C4C4"
+        android:orientation="horizontal"
+
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
 package com.umc.one_person_households_platform.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.model.CommunityDTO
-import com.umc.one_person_households_platform.model.CommunityPost
-import com.umc.one_person_households_platform.model.CommunityPostlistDTO
-import com.umc.one_person_households_platform.network.ApiClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
