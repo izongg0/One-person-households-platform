@@ -8,25 +8,31 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.umc.one_person_households_platform.R
+import com.umc.one_person_households_platform.model.CommunityDTO
+import com.umc.one_person_households_platform.model.CommunityPostItems
 import com.umc.one_person_households_platform.model.CommunityPostlistDTO
 
-class CommunitySearchAdapter : ListAdapter<CommunityPostlistDTO, CommunitySearchAdapter.PostViewHolder>(PostDiffCallback()) {
+class CommunitySearchAdapter : ListAdapter<CommunityPostItems, CommunitySearchAdapter.PostViewHolder>(PostDiffCallback()) {
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(post: CommunityPostlistDTO) {
+        fun bind(post: CommunityDTO) {
+
+            itemView.findViewById<TextView>(R.id.tv_posttitle).text = post!!.result.items[position].title
+            itemView.findViewById<TextView>(R.id.tv_author).text = post!!.result.items[position].nickname
+            itemView.findViewById<TextView>(R.id.tv_category).text = post!!.result.items[position].category
+            itemView.findViewById<TextView>(R.id.tv_distance).text = post!!.result.items[position].distance.toString()
+            itemView.findViewById<TextView>(R.id.tv_time).text = post!!.result.items[position].createAt
 
 
-            itemView.findViewById<TextView>(R.id.tv_posttitle).text = post.postName
-            itemView.findViewById<TextView>(R.id.tv_author).text = post.author
         }
     }
 
-    class PostDiffCallback : DiffUtil.ItemCallback<CommunityPostlistDTO>() {
-        override fun areItemsTheSame(oldItem: CommunityPostlistDTO, newItem: CommunityPostlistDTO): Boolean {
-            return oldItem.postName == newItem.postName
+    class PostDiffCallback : DiffUtil.ItemCallback<CommunityPostItems>() {
+        override fun areItemsTheSame(oldItem: CommunityPostItems, newItem: CommunityPostItems): Boolean {
+            return oldItem.postIdx == newItem.postIdx
         }
 
-        override fun areContentsTheSame(oldItem: CommunityPostlistDTO, newItem: CommunityPostlistDTO): Boolean {
+        override fun areContentsTheSame(oldItem: CommunityPostItems, newItem: CommunityPostItems): Boolean {
             return oldItem == newItem
         }
     }
@@ -37,6 +43,6 @@ class CommunitySearchAdapter : ListAdapter<CommunityPostlistDTO, CommunitySearch
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        holder.bind(getItem(position))
+//        holder.bind(getItem(position))
     }
 }
