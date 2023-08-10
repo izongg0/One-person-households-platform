@@ -4,10 +4,12 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentNewpostBinding
+import com.umc.one_person_households_platform.model.AddResult
+import com.umc.one_person_households_platform.model.ApiResponse
+import com.umc.one_person_households_platform.model.CommunityAddpostDTO
+import com.umc.one_person_households_platform.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class NewpostFragment : Fragment() {
 
@@ -65,11 +74,56 @@ class NewpostFragment : Fragment() {
 
             }
         }
-        binding.tvCatergory.text == "게시글의 주제를 선택해주세요"
+
+
+
 
         binding.tvAddbtn.setOnClickListener {
 
             if (binding.tvAddbtn.isEnabled == true) {
+
+                var photouri: List<String> = listOf("사진1")
+                var categoryid = 0
+                when (binding.tvCatergory.text.toString()) {
+                    "맛집이야기" -> categoryid = 11
+                    "질문있어요" -> categoryid = 12
+                    "대화해요" -> categoryid = 13
+                    "공유해요" -> categoryid = 14
+                    else -> println("null")
+                }
+
+                var postadd = CommunityAddpostDTO(
+                    categoryid,
+                    2,
+                    binding.etEdittitle.text.toString(),
+                    binding.etEditcontent.text.toString(),
+                    photouri
+                )
+
+                val apiService = ApiClient.create()
+                val call = apiService.addCommunityPost(postadd)
+
+                call.enqueue(object : Callback<ApiResponse> {
+                    override fun onResponse(
+                        call: Call<ApiResponse>,
+                        response: Response<ApiResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+
+
+
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_newpostFragment_to_communityFragment)
 
@@ -115,13 +169,8 @@ class NewpostFragment : Fragment() {
 
     }
 
-    private fun showAlert(alerttext : String) {
+    private fun showAlert(alerttext: String) {
 
-//        val builder = AlertDialog.Builder(requireContext())
-//        AlertDialog.Builder(requireContext())
-//            .setTitle("$alerttext")
-//            .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int -> }
-//            .show()
         val myLayout = layoutInflater.inflate(R.layout.fragment_common_check, null)
         myLayout.findViewById<TextView>(R.id.tv_content).text = alerttext
         myLayout.findViewById<TextView>(R.id.tv_check).text = "확인"
