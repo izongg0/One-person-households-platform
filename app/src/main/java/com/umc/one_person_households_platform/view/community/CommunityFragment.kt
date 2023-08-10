@@ -110,7 +110,7 @@ class CommunityFragment : Fragment() {
 
                         postAdapter = CommunityCategoryAdapter(postlist!!)
                         binding.rvPostlist.adapter = postAdapter
-                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext())
+                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
 
                     }
 
