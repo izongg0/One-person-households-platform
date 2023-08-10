@@ -18,7 +18,10 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
+import com.umc.one_person_households_platform.adapter.AddPostImageAdapter
+import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
 import com.umc.one_person_households_platform.databinding.FragmentNewpostBinding
 import com.umc.one_person_households_platform.model.AddResult
 import com.umc.one_person_households_platform.model.ApiResponse
@@ -33,6 +36,8 @@ class NewpostFragment : Fragment() {
     private lateinit var
             binding: FragmentNewpostBinding
     private val PICK_IMAGE_REQUEST = 1
+    private val selectedImageUris = mutableListOf<Uri>()
+    lateinit var imageAdapter: AddPostImageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +60,9 @@ class NewpostFragment : Fragment() {
             }
             orderBottomDialogFragment.show(parentFragmentManager, orderBottomDialogFragment.tag)
         }
+
+
+
 
 
         val textWatcher = object : TextWatcher {
@@ -188,7 +196,16 @@ class NewpostFragment : Fragment() {
     }
 
     private fun openGallery() {
+//        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+//        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+//        intent.addCategory(Intent.CATEGORY_OPENABLE)
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+        intent.type = "image/*"
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = Intent.ACTION_GET_CONTENT // 갤러리에서 다중 선택을 지원하는 경우에도 사용할 수 있는 방법
+
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
@@ -196,12 +213,37 @@ class NewpostFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-//            data?.data?.let { uri ->
-//                val bitmap =
-//                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
-//                binding.ivPhoto.setImageBitmap(bitmap)
-//            }
+            if (data?.clipData != null) {
+                val clipData = data.clipData
+                for (i in 0 until clipData?.itemCount!!) {
+                    val uri = clipData.getItemAt(i).uri
+                    selectedImageUris.add(uri)
+                }
+            } else if (data?.data != null) {
+                val uri = data.data
+                selectedImageUris.add(uri!!)
+            }
+
+            // 선택한 이미지들을 처리하는 로직을 추가할 수 있습니다.
+            // 이 리스트에는 선택한 이미지들의 URI가 저장되어 있음
+
+            // 예를 들어, 선택한 이미지들을 로그로 출력해볼 수 있습니다.
+            for (imageUri in selectedImageUris) {
+                Log.d("SelectedImage", "Image URI: $imageUri")
+            }
         }
+
+        imageAdapter = AddPostImageAdapter(selectedImageUris)
+        binding.rvImage.adapter = imageAdapter
+        binding.rvImage.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+
+//        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+////            data?.data?.let { uri ->
+////                val bitmap =
+////                    MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
+////                binding.ivPhoto.setImageBitmap(bitmap)
+////            }
+//        }
     }
 }
 

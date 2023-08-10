@@ -137,8 +137,11 @@
 
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_image"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
                     />
 
             </LinearLayout>

@@ -1,13 +1,22 @@
 package com.umc.one_person_households_platform.adapter
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.model.CommunityDTO
+import com.umc.one_person_households_platform.model.CommunityDetailDTO
+import com.umc.one_person_households_platform.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -50,8 +59,17 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
 
         view.findViewById<TextView>(R.id.tv_posttitle).setOnClickListener {
 
-            Navigation.findNavController(view)
-                .navigate(R.id.action_communityFragment_to_postdetailFragment)
+
+            val bundle = Bundle()
+            bundle.putInt("this_post",realpostlist!!.result.items[position].postIdx ) // 데이터 추가
+
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_communityFragment_to_postdetailFragment, bundle)
+
+
+
+
+
         }
 
     }
