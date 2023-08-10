@@ -33,8 +33,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapter() {
+        val communityAdapter = HomeCommunityAdapter()
         val groupBuyingListAdapter = HomeGroupBuyingAdapter()
+
+        binding.rvCommunity.adapter = communityAdapter
         binding.rvGroupBuying.adapter = groupBuyingListAdapter
+
+        viewModel.communityContent.observe(viewLifecycleOwner) {
+            communityAdapter.submitList(it)
+        }
 
         viewModel.groupBuyingContent.observe(viewLifecycleOwner) {
             groupBuyingListAdapter.submitList(it)

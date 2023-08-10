@@ -3,6 +3,7 @@ package com.umc.one_person_households_platform.network
 import com.umc.one_person_households_platform.model.AddResult
 import com.umc.one_person_households_platform.model.ApiResponse
 import com.umc.one_person_households_platform.model.CommunityAddpostDTO
+import com.umc.one_person_households_platform.model.Community
 import com.umc.one_person_households_platform.model.CommunityDTO
 import com.umc.one_person_households_platform.model.GroupBuying
 import retrofit2.Call
@@ -30,6 +31,11 @@ interface ApiClient {
     @GET("app/home/grouppurchase")
     suspend fun getGroupBuyingCategories(): Response<GroupBuying>
 
+    // 홈 화면 커뮤니티 인기글 출력
+    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4Ijo0LCJpYXQiOjE2OTE1ODA1OTAsImV4cCI6MTY5MzA1MTgxOX0.u0SZtEBBx5UqT3wTSPLgJDuY6OWd8E_FoNMRxmLEWcQ")
+    @GET("app/home/community")
+    suspend fun getCommunityCategories(): Response<Community>
+
     @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE2NTI5OTksImV4cCI6MTY5MzEyNDIyOH0.euC4O_F_PnQ5i0Q0G7Ukzssdkv2gHQQVEeX8lcDuo3s")
     @POST("/app/post/create"
     )
@@ -42,6 +48,7 @@ interface ApiClient {
 //        "contents" : "질문있습니다",
 //        "paths": []
 //    }
+
     companion object {
 
         private const val baseUrl = "https://www.jachsang.shop/"
