@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.umc.one_person_households_platform.model.CommunityContent
 import com.umc.one_person_households_platform.model.GroupBuyingContent
+import com.umc.one_person_households_platform.model.HotRecipeContent
 import com.umc.one_person_households_platform.repository.home.HomeRepository
 import kotlinx.coroutines.launch
 
@@ -16,6 +17,9 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
     private val _groupBuyingContent = MutableLiveData<List<GroupBuyingContent>>()
     val groupBuyingContent: LiveData<List<GroupBuyingContent>> = _groupBuyingContent
+
+    private val _hotRecipeContent = MutableLiveData<List<HotRecipeContent>>()
+    val hotRecipeContent: LiveData<List<HotRecipeContent>> = _hotRecipeContent
 
     init {
         loadContent()
@@ -28,6 +32,9 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
             val getCommunityContent = homeRepository.getCommunityCategories()
             _communityContent.value = getCommunityContent
+
+            val getHotRecipeContent = homeRepository.getHotRecipeCategory()
+            _hotRecipeContent.value = getHotRecipeContent
         }
     }
 }
