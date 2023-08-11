@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.model.CommunityDTO
 import com.umc.one_person_households_platform.model.CommunityDetailDTO
@@ -54,11 +56,11 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
             realpostlist!!.result.items[position].createAt
 
 
-
-
+        Glide.with(view.context)
+            .load(realpostlist!!.result.items[position].imagePath)
+            .into(view.findViewById<ImageView>(R.id.iv_headimg))
 
         view.findViewById<TextView>(R.id.tv_posttitle).setOnClickListener {
-
 
             val bundle = Bundle()
             bundle.putInt("this_post",realpostlist!!.result.items[position].postIdx ) // 데이터 추가
@@ -66,13 +68,6 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_communityFragment_to_postdetailFragment, bundle)
 
-
-
-
-
         }
-
     }
-
-
 }

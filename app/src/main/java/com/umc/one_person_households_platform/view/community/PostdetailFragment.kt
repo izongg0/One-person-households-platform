@@ -105,42 +105,42 @@ class PostdetailFragment : Fragment() {
 
         val apiClient = ApiClient.create()
 
-        apiClient.getPostDetail(myData!!).enqueue(object : Callback<CommunityDetailDTO> {
-            override fun onResponse(
-                call: Call<CommunityDetailDTO>,
-                response: Response<CommunityDetailDTO>
-            ) {
-                if (response.isSuccessful) {
-
-                    postdetailcontent = response.body()
-
-                    var postCategory: String = ""
-
-                    when (postdetailcontent!!.result!!.categoryIdx) {
-
-                        11 -> postCategory = "맛집이야기"
-                        12 -> postCategory = "질문있어요"
-                        13 -> postCategory = "대화해요"
-                        14 -> postCategory = "공유해요"
-                    }
-
-                    binding.tvCategory.text = postCategory
-                    binding.tvAuthor.text = postdetailcontent!!.result!!.userIdx.toString()
-                    binding.tvTime.text = postdetailcontent!!.result!!.createAt.toString()
-                    binding.tvPosttitle.text = postdetailcontent!!.result!!.title
-                    binding.tvPostcontent.text = postdetailcontent!!.result!!.contents
-                    binding.tvInterestbtn.text = postdetailcontent!!.result!!.likeCount.toString()
-
-
-                } else {
-                    Log.e("ApiError", "API 요청 실패: ${response.code()}")
-                }
-            }
-
-            override fun onFailure(call: Call<CommunityDetailDTO>, t: Throwable) {
-                Log.e("ApiError", "API 요청 실패", t)
-            }
-        })
+//        apiClient.getPostDetail(myData!!).enqueue(object : Callback<CommunityDetailDTO> {
+//            override fun onResponse(
+//                call: Call<CommunityDetailDTO>,
+//                response: Response<CommunityDetailDTO>
+//            ) {
+//                if (response.isSuccessful) {
+//
+//                    postdetailcontent = response.body()
+//
+//                    var postCategory: String = ""
+//
+//                    when (postdetailcontent!!.result!!.categoryIdx) {
+//
+//                        11 -> postCategory = "맛집이야기"
+//                        12 -> postCategory = "질문있어요"
+//                        13 -> postCategory = "대화해요"
+//                        14 -> postCategory = "공유해요"
+//                    }
+//
+//                    binding.tvCategory.text = postCategory
+//                    binding.tvAuthor.text = postdetailcontent!!.result!!.userIdx.toString()
+//                    binding.tvTime.text = postdetailcontent!!.result!!.createAt.toString()
+//                    binding.tvPosttitle.text = postdetailcontent!!.result!!.title
+//                    binding.tvPostcontent.text = postdetailcontent!!.result!!.contents
+//                    binding.tvInterestbtn.text = postdetailcontent!!.result!!.likeCount.toString()
+//
+//
+//                } else {
+//                    Log.e("ApiError", "API 요청 실패: ${response.code()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<CommunityDetailDTO>, t: Throwable) {
+//                Log.e("ApiError", "API 요청 실패", t)
+//            }
+//        })
 
 
 
