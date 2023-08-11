@@ -46,6 +46,10 @@ class HomeFragment : Fragment() {
         viewModel.groupBuyingContent.observe(viewLifecycleOwner) {
             groupBuyingListAdapter.submitList(it)
         }
+
+        viewModel.hotRecipeContent.observe(viewLifecycleOwner) {
+            binding.hotRecipe = it[0]
+        }
     }
 
     override fun onDestroyView() {

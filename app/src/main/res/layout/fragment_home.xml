@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="hotRecipe"
+            type="com.umc.one_person_households_platform.model.HotRecipeContent" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -264,22 +267,23 @@
                         android:ellipsize="end"
                         android:gravity="top"
                         android:maxLines="1"
-                        android:text="[백종원의 요리비책] 버터간장계란밥"
+                        android:text="@{hotRecipe.title}"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/view_6"
-                        app:layout_constraintWidth_percent="0.8" />
+                        app:layout_constraintWidth_percent="0.8"
+                        tools:text="[백종원의 요리비책] 버터간장계란밥" />
 
                     <ImageView
                         android:id="@+id/iv_recipe_food"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_home_food"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_recipe_title" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_recipe_title"
+                        tools:src="@drawable/ic_home_food" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
