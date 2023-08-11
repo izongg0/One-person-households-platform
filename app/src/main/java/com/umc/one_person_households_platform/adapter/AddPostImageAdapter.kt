@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.R
 
 
-class AddPostImageAdapter(var selectedImageUris : MutableList<Uri>) :
+class AddPostImageAdapter(var selectedImageUris : MutableList<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 

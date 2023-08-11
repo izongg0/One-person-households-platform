@@ -34,6 +34,9 @@ interface ApiClient {
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/post/get")
     fun getPostDetail(@Body postIdx: Int): Call<CommunityDetailDTO>
+//    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE1Nzg2MjUsImV4cCI6MTY5MzA0OTg1NH0.PTnyiTpTf3vV-t9l_T63HYQC9fISO-C8COR8IkISgZY")
+//    @GET("/app/post/get")
+//    fun getPostDetail(@Body postIdx: Int): Call<CommunityDetailDTO>
 
     // 홈 화면 마감 임박 공구 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
@@ -51,8 +54,7 @@ interface ApiClient {
     suspend fun getHotRecipeCategory(): Response<HotRecipe>
 
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @POST("/app/post/create"
-    )
+    @POST("/app/post/create")
     fun addCommunityPost(@Body postData: CommunityAddpostDTO): Call<ApiResponse>
 
     companion object {

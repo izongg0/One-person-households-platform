@@ -36,7 +36,7 @@ class NewpostFragment : Fragment() {
     private lateinit var
             binding: FragmentNewpostBinding
     private val PICK_IMAGE_REQUEST = 1
-    private val selectedImageUris = mutableListOf<Uri>()
+    private val selectedImageUris = mutableListOf<String>()
     lateinit var imageAdapter: AddPostImageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +90,7 @@ class NewpostFragment : Fragment() {
 
             if (binding.tvAddbtn.isEnabled == true) {
 
-                var photouri: List<String> = listOf("사진1")
+                var photouri: MutableList<String> = mutableListOf("사진1")
                 var categoryid = 0
                 when (binding.tvCatergory.text.toString()) {
                     "맛집이야기" -> categoryid = 11
@@ -105,7 +105,7 @@ class NewpostFragment : Fragment() {
                     2,
                     binding.etEdittitle.text.toString(),
                     binding.etEditcontent.text.toString(),
-                    photouri
+                    selectedImageUris
                 )
 
                 val apiService = ApiClient.create()
@@ -217,11 +217,11 @@ class NewpostFragment : Fragment() {
                 val clipData = data.clipData
                 for (i in 0 until clipData?.itemCount!!) {
                     val uri = clipData.getItemAt(i).uri
-                    selectedImageUris.add(uri)
+                    selectedImageUris.add(uri.toString())
                 }
             } else if (data?.data != null) {
                 val uri = data.data
-                selectedImageUris.add(uri!!)
+                selectedImageUris.add(uri!!.toString())
             }
 
             // 선택한 이미지들을 처리하는 로직을 추가할 수 있습니다.
