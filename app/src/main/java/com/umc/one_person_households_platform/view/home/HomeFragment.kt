@@ -35,9 +35,11 @@ class HomeFragment : Fragment() {
     private fun setAdapter() {
         val communityAdapter = HomeCommunityAdapter()
         val groupBuyingListAdapter = HomeGroupBuyingAdapter()
+        val hotRecipeAdapter = HomeHotRecipeAdapter()
 
         binding.rvCommunity.adapter = communityAdapter
         binding.rvGroupBuying.adapter = groupBuyingListAdapter
+        binding.rvHotRecipe.adapter = hotRecipeAdapter
 
         viewModel.communityContent.observe(viewLifecycleOwner) {
             communityAdapter.submitList(it)
@@ -48,7 +50,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.hotRecipeContent.observe(viewLifecycleOwner) {
-            binding.hotRecipe = it[0]
+            hotRecipeAdapter.submitList(it)
         }
     }
 
