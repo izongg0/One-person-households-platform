@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.databinding.ItemHomeCommunityListBinding
 import com.umc.one_person_households_platform.model.CommunityContent
 
@@ -23,6 +24,11 @@ class HomeCommunityAdapter : ListAdapter<CommunityContent, HomeCommunityAdapter.
         fun bind(item: CommunityContent) {
             with(binding) {
                 community = item
+
+                Glide.with(itemView)
+                    .load(item.imagePath)
+                    .into(sivPhoto)
+
                 executePendingBindings()
             }
         }
