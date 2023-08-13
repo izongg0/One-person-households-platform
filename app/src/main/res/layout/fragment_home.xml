@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="home"
+            type="com.umc.one_person_households_platform.view.home.HomeFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,8 +105,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_marginEnd="5dp"
-                        android:background="#00000000"
                         android:drawablePadding="1.5dp"
+                        android:onClick="@{(view) -> home.onMoveButton(view)}"
                         android:text="더 보기"
                         android:textColor="#FFB629"
                         android:textSize="14sp"
@@ -170,8 +173,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_marginEnd="5dp"
-                        android:background="#00000000"
                         android:drawablePadding="1.5dp"
+                        android:onClick="@{(view) -> home.onMoveButton(view)}"
                         android:text="더 보기"
                         android:textColor="#FFB629"
                         android:textSize="14sp"
@@ -237,8 +240,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_marginEnd="5dp"
-                        android:background="#00000000"
                         android:drawablePadding="1.5dp"
+                        android:onClick="@{(view) -> home.onMoveButton(view)}"
                         android:text="더 보기"
                         android:textColor="#FFB629"
                         android:textSize="14sp"
