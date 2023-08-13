@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentHomeBinding
 import com.umc.one_person_households_platform.view.common.ViewModelFactory
 
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.home = this
         setAdapter()
     }
 
@@ -51,6 +54,15 @@ class HomeFragment : Fragment() {
 
         viewModel.hotRecipeContent.observe(viewLifecycleOwner) {
             hotRecipeAdapter.submitList(it)
+        }
+    }
+
+    // 이동 버튼 클릭 이벤트
+    fun onMoveButton(view: View) {
+        when(view.id) {
+            R.id.tv_community_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_communityFragment)
+            R.id.tv_group_buying_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_groupBuyingFragment)
+            R.id.tv_recipe_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_recipemainFragment)
         }
     }
 

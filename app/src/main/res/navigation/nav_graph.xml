@@ -7,7 +7,23 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.umc.one_person_households_platform.view.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_groupBuyingFragment"
+            app:destination="@id/groupBuyingFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_recipemainFragment"
+            app:destination="@id/recipemainFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_communityFragment"
+            app:destination="@id/communityFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/groupBuyingFragment"
@@ -17,7 +33,7 @@
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.umc.one_person_households_platform.view.community.CommunityFragment"
-        android:label="CommunityFragment" >
+        android:label="CommunityFragment">
         <action
             android:id="@+id/action_communityFragment_to_newpostFragment"
             app:destination="@id/newpostFragment" />
@@ -31,7 +47,7 @@
     <fragment
         android:id="@+id/newpostFragment"
         android:name="com.umc.one_person_households_platform.view.community.NewpostFragment"
-        android:label="NewpostFragment" >
+        android:label="NewpostFragment">
         <action
             android:id="@+id/action_newpostFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
@@ -39,7 +55,7 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.umc.one_person_households_platform.view.community.SearchFragment"
-        android:label="SearchFragment" >
+        android:label="SearchFragment">
         <action
             android:id="@+id/action_searchFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
@@ -52,7 +68,7 @@
     <fragment
         android:id="@+id/postdetailFragment"
         android:name="com.umc.one_person_households_platform.view.community.PostdetailFragment"
-        android:label="PostdetailFragment" >
+        android:label="PostdetailFragment">
         <action
             android:id="@+id/action_postdetailFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
@@ -63,7 +79,7 @@
     <fragment
         android:id="@+id/reportFragment"
         android:name="com.umc.one_person_households_platform.view.community.ReportFragment"
-        android:label="ReportFragment" >
+        android:label="ReportFragment">
         <action
             android:id="@+id/action_reportFragment_to_postdetailFragment"
             app:destination="@id/postdetailFragment" />
