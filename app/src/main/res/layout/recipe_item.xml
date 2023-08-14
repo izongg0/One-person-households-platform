@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="178dp"
+    android:layout_height="180dp"
     >
 
     <LinearLayout
@@ -12,7 +12,9 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#C4C4C4"
+        android:background="#D9D9D9"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
 
         >
 
@@ -39,15 +41,7 @@
         <!--        글자수 제한 필요-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="#달걀 #버터 #간장"
-            android:id="@+id/tv_recipetag"
-            android:layout_marginTop="5dp"
-            android:textSize="12dp"
-android:layout_marginBottom="10dp"
-            />
+
 
 
 
@@ -55,10 +49,11 @@ android:layout_marginBottom="10dp"
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/iv_scrap"
         android:layout_width="19dp"
         android:layout_height="19dp"
         android:layout_marginTop="5dp"
+
         android:layout_marginRight="21.85dp"
         android:src="@drawable/btn_recipe_bookmark_clicked"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,19 +65,22 @@ android:layout_marginBottom="10dp"
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="7sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_scrap"
+        app:layout_constraintStart_toStartOf="@+id/iv_scrap"
+        app:layout_constraintTop_toBottomOf="@+id/iv_scrap" />
 
 
 
     <ImageView
+        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:id="@+id/iv_recipeimg"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:src="@drawable/bg_recipe_testimg"
         android:background="@drawable/recipe_radious"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
