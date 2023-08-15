@@ -40,6 +40,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
         return recipelist?.result?.size ?: 0
 
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -52,6 +53,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
             recipelist!!.result[position].title
         view.findViewById<TextView>(R.id.tv_scrapcount).text =
             recipelist!!.result[position].likeCount.toString()
+
 
 
         view.findViewById<ImageView>(R.id.iv_scrap).setOnClickListener {
@@ -81,6 +83,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
         }
 
         if(recipelist!!.result[position].likeStatus){
+
 
             view.findViewById<ImageView>(R.id.iv_scrap).setImageResource(R.drawable.btn_recipe_bookmark_clicked)
         }else{

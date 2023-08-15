@@ -47,6 +47,11 @@ interface ApiClient {
     fun addCommunityComment(@Body commentData: CommentAddItems): Call<CommentAddResult>
 
 
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/create")
+    fun addCommunityPost(@Body postData: CommunityAddpostDTO): Call<ApiResponse>
+
+
     // 홈 화면 마감 임박 공구 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("app/home/grouppurchase")
