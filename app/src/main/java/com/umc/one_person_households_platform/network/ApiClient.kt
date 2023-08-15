@@ -16,6 +16,35 @@ import retrofit2.http.*
 
 interface ApiClient {
 
+    // 홈 화면 마감 임박 공구 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/grouppurchase")
+    suspend fun getGroupBuyingCategories(): Response<GroupBuying>
+
+    // 홈 화면 커뮤니티 인기글 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/community")
+    suspend fun getCommunityCategories(): Response<Community>
+
+    // 홈 화면 금주 HOT 레시피 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/recipe")
+    suspend fun getHotRecipeCategory(): Response<HotRecipe>
+
+    // 공동 구매 화면 최신 공구, 마감 임박 공구 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/boards/grouppurchase")
+    suspend fun getGroupBuyingSort(
+        @Query("sort") sort: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
+    ): Response<GroupBuying>
+
+    // 공동 구매 화면 나머지 카테고리 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/boards/grouppurchase")
+    suspend fun getGroupBuyingCategory(
+        @Query("category") category: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
+    ): Response<GroupBuying>
+
     // 공동 구매 리스트 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/community")
@@ -37,21 +66,6 @@ interface ApiClient {
 //    @Headers("X-ACCESS-TOKEN: eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoyLCJpYXQiOjE2OTE1Nzg2MjUsImV4cCI6MTY5MzA0OTg1NH0.PTnyiTpTf3vV-t9l_T63HYQC9fISO-C8COR8IkISgZY")
 //    @GET("/app/post/get")
 //    fun getPostDetail(@Body postIdx: Int): Call<CommunityDetailDTO>
-
-    // 홈 화면 마감 임박 공구 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/grouppurchase")
-    suspend fun getGroupBuyingCategories(): Response<GroupBuying>
-
-    // 홈 화면 커뮤니티 인기글 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/community")
-    suspend fun getCommunityCategories(): Response<Community>
-
-    // 홈 화면 금주 HOT 레시피 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/recipe")
-    suspend fun getHotRecipeCategory(): Response<HotRecipe>
 
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @POST("/app/post/create")
