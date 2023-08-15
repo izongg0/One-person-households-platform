@@ -7,13 +7,10 @@ data class RecipeDTO(
     val isSuccess: Boolean,
     val code: Int,
     val message: String,
-    val result: RecipeListResult
+    val result: List<RecipeListItems>
 )
 
-data class RecipeListResult(
-    val items: List<RecipeListItems>,
-    val isLast: Boolean
-)
+
 
 data class RecipeListItems(
     val postIdx: Int,
@@ -27,7 +24,7 @@ data class RecipeScrapBody(
     val postIdx: Int,
     val userIdx: Int
 
-    )
+)
 data class RecipeScrapResponse(
     val isSuccess: String,
     val code: Int,

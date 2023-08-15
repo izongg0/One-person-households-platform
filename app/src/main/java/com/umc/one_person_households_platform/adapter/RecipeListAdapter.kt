@@ -38,7 +38,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
     override fun getItemCount(): Int {
 
-        return recipelist?.result?.items?.size ?: 0
+        return recipelist?.result?.size ?: 0
 
     }
 
@@ -49,9 +49,9 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
 
         view.findViewById<TextView>(R.id.tv_recipetitle).text =
-            recipelist!!.result.items[position].title
+            recipelist!!.result[position].title
         view.findViewById<TextView>(R.id.tv_scrapcount).text =
-            recipelist!!.result.items[position].likeCount.toString()
+            recipelist!!.result[position].likeCount.toString()
 
 
         view.findViewById<ImageView>(R.id.iv_scrap).setOnClickListener {
@@ -80,7 +80,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
         }
 
-        if(recipelist!!.result.items[position].likeStatus){
+        if(recipelist!!.result[position].likeStatus){
 
             view.findViewById<ImageView>(R.id.iv_scrap).setImageResource(R.drawable.btn_recipe_bookmark_clicked)
         }else{
