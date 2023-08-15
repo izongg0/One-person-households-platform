@@ -97,20 +97,20 @@ class CommunityFragment : Fragment() {
 
 
     fun callApi(category: String) {
-        var postlist: CommunityDTO? = null
 
         val apiClient = ApiClient.create()
 
         apiClient.getCommunity(category, 0).enqueue(object : Callback<CommunityDTO> {
             override fun onResponse(call: Call<CommunityDTO>, response: Response<CommunityDTO>) {
                 if (response.isSuccessful) {
-                    postlist = response.body()
+                    var postlist = response.body()
 
+                    Log.d("fltmxm",postlist.toString())
                     if (postlist != null) {
 
                         postAdapter = CommunityCategoryAdapter(postlist!!)
                         binding.rvPostlist.adapter = postAdapter
-                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
+                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext(),)
 
                     }
 

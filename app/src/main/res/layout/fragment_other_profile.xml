@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".OtherProfileFragment">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="16dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/btn_login_leftarrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="147dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginLeft="109dp"
+            android:text="프로필"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal|top"
+            android:textSize="19sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_more_vert"
+            android:layout_width="16dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginLeft="218dp"
+            android:src="@drawable/btn_other_profile_more"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="408dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_mypage_dividebox_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <ImageView
+            android:id="@+id/ic_profile"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_mypage_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_line" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="119dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="68dp"
+            android:text="자취생"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintStart_toStartOf="@id/ic_profile"
+            app:layout_constraintTop_toBottomOf="@id/iv_line" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="157dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif"
+            android:text="가좌동*3km이내"
+            android:textColor="#8C8C8C"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/textview1"
+            app:layout_constraintTop_toBottomOf="@id/textview1" />
+
+        <TextView
+            android:id="@+id/btn_chat"
+            android:layout_width="313dp"
+            android:layout_height="38dp"
+            android:text="채팅하기"
+            android:layout_marginTop="17dp"
+            android:gravity="center_horizontal|top"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/bg_mypage_yellow_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview2"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/iv_line2"
+            android:layout_width="348dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_mypage_dividebox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_chat"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="119dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="20dp"
+            android:text="커뮤니티글"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintStart_toStartOf="@id/btn_chat"
+            app:layout_constraintTop_toBottomOf="@id/iv_line2" />
+
+        <TextView
+            android:id="@+id/textview4"
+            android:layout_width="119dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="20dp"
+            android:text="댓글"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintStart_toStartOf="@id/textview3"
+            app:layout_constraintTop_toBottomOf="@id/textview3" />
+
+        <TextView
+            android:id="@+id/textview5"
+            android:layout_width="119dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="20dp"
+            android:text="신고 받은 횟수"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintStart_toStartOf="@id/textview3"
+            app:layout_constraintTop_toBottomOf="@id/textview4" />
+
+        <ImageView
+            android:id="@+id/iv_line3"
+            android:layout_width="348dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_mypage_dividebox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview5"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textview6"
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="sans-serif"
+            android:text="자취생"
+            android:textColor="#FFB629"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/textview3"
+            app:layout_constraintTop_toBottomOf="@id/iv_line3"
+             />
+
+        <TextView
+            android:id="@+id/textview7"
+            android:layout_width="190dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="sans-serif-black"
+            android:text="님이 올린 공동구매 글"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textview6"
+            app:layout_constraintTop_toBottomOf="@id/iv_line3"
+             />
+
+         <ImageView
+             android:id="@+id/iv_right"
+             android:layout_width="16dp"
+             android:layout_height="28dp"
+             android:layout_marginTop="21dp"
+             android:background="@drawable/btn_login_rightarrow"
+             app:layout_constraintStart_toStartOf="@+id/iv_more_vert"
+             app:layout_constraintTop_toBottomOf="@id/iv_line3"
+             />
+
+        <ScrollView
+            android:layout_width="416dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_right">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="402dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_right" />
+        </ScrollView>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

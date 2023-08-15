@@ -1,7 +1,33 @@
 package com.umc.one_person_households_platform.model
 
-data class RecipeDTO (
-    var recipe_title : String ,
-    var recipe_tag : String ,
-    var scrap_count : Int,
+import android.content.ClipData
+
+// 레시피 목록 불러오기
+data class RecipeDTO(
+    val isSuccess: Boolean,
+    val code: Int,
+    val message: String,
+    val result: List<RecipeListItems>
+)
+
+
+
+data class RecipeListItems(
+    val postIdx: Int,
+    val title: String,
+    val likeStatus: Boolean,
+    val likeCount: Int,
+    val imagePath: String
+)
+// 스크랩
+data class RecipeScrapBody(
+    val postIdx: Int,
+    val userIdx: Int
+
+)
+data class RecipeScrapResponse(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: String
 )

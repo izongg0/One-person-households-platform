@@ -6,6 +6,7 @@
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     android:layout_marginTop="8dp"
+    android:id="@+id/cl_postclick"
     >
 
 
@@ -40,7 +41,7 @@
             android:id="@+id/tv_posttitle"
             android:layout_marginBottom="7dp"
             />
-            <!--        글자수 제한 필요-->
+        <!--        글자수 제한 필요-->
 
 
         <LinearLayout

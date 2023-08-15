@@ -75,7 +75,7 @@ class SearchFragment : Fragment() {
                     filteredPosts = response.body()
                     Log.d("rufrhk", filteredPosts.toString())
 
-                    if (filteredPosts?.result?.items != null) {
+                    if (filteredPosts?.result != null) {
                         binding.tvDescription.isVisible = false
                         binding.rvSearch.isVisible = true
 
