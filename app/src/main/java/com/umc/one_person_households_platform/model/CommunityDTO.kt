@@ -5,18 +5,14 @@ import com.google.gson.annotations.SerializedName
 import java.sql.Timestamp
 
 
-// 커뮤니티 게시글 목록 불러오기
+
 data class CommunityDTO(
     val isSuccess: Boolean,
     val code: Int,
     val message: String,
-    val result: Result
+    val result: List<CommunityPost>
 )
 
-data class Result(
-    val items: List<CommunityPost>,
-    val isLast: Boolean
-)
 
 data class CommunityPost(
     val postIdx: Int,
@@ -29,58 +25,74 @@ data class CommunityPost(
     val imagePath: String?
 )
 
-//data class CommunityPostItems(
-//
-//    @SerializedName("postIdx")
-//    val postIdx: Int,
-//
-//    @SerializedName("categoryIdx")
-//    val categoryIdx: Int,
-//
-//    @SerializedName("category")
-//    val category: String,
-//
-//    @SerializedName("title")
-//    val title: String,
-//
-//    @SerializedName("nickname")
-//    val nickname: String,
-//
-//    @SerializedName("distance")
-//    val distance: Int,
-//
-//    @SerializedName("createAt")
-//    val createAt: String,
-//
-//    @SerializedName("imagePath")
-//    val imagePath: String
-//)
 
 
 // 커뮤니티 게시글 디테일 페이지
 
 data class CommunityDetailDTO(
 
-    val isSuccess: Boolean,
-    val code: Int,
-    val message: String,
-    val result: CommunityDetailContent?
+    @SerializedName("isSuccess") val isSuccess: String,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: CommunityDetailContent
 )
 data class CommunityDetailContent(
-    val paths: List<String>,
-    val postIdx: Int,
-    val categoryIdx: Int,
-    val userIdx: Int,
-    val title: String,
-    val viewCount: Int,
-    val likeCount: Int,
-    val createAt: Timestamp,
-    val updateAt: Timestamp,
-    val url: String?,
-    val communityDetailIdx: Int,
-    val contents: String
+    @SerializedName("paths") val paths: List<String>,
+    @SerializedName("postIdx") val postIdx: Int,
+    @SerializedName("categoryIdx") val categoryIdx: Int,
+    @SerializedName("userIdx") val userIdx: Int,
+    @SerializedName("title") val title: String,
+    @SerializedName("viewCount") val viewCount: Int,
+    @SerializedName("likeCount") val likeCount: Int,
+    @SerializedName("createAt") val createAt: String,
+    @SerializedName("updateAt") val updateAt: String,
+    @SerializedName("url") val url: String,
+    @SerializedName("communityDetailIdx") val communityDetailIdx: Int,
+    @SerializedName("contents") val contents: String,
+    @SerializedName("comments") val comments: List<Int>
 )
 
+// 댓글 불러오기
+data class CommunityComment(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: CommentItems
+)
+
+data class CommentItems(
+    val commentIdx: Int,
+    val postIdx: Int,
+    val userIdx: Int,
+    val parentCommentIdx: Int,
+    val originIdx: Int,
+    val likeCount: Int,
+    val contents: String,
+    @SerializedName("createAt")
+    val createdAt: String,
+    @SerializedName("updateAt")
+    val updatedAt: String,
+    val deleted: Boolean
+)
+
+// 댓글 작성
+
+data class CommentAddItems(
+    val postIdx: Int,
+    val userIdx: Int,
+    val parentCommentIdx: Int,
+    val contents: String
+)
+data class CommentAddResult(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: Int
+)
+
+data class CommentResultData(
+    val result: Int
+)
 
 
 
