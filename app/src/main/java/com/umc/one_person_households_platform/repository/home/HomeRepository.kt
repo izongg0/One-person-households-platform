@@ -16,7 +16,7 @@ class HomeRepository(private val homeRemoteDataSource: HomeRemoteDataSource) {
         try {
             val response = homeRemoteDataSource.getGroupBuyingCategories()
             if (response.isSuccessful){
-                groupBuyingContentList = response.body()!!.GroupBuyingContent
+                groupBuyingContentList = response.body()!!.groupBuyingContent
             }else {
                 Log.d("errorCode","오류 코드: ${response.code()}")
             }

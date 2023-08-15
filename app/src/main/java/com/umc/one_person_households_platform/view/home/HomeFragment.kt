@@ -47,11 +47,9 @@ class HomeFragment : Fragment() {
         viewModel.communityContent.observe(viewLifecycleOwner) {
             communityAdapter.submitList(it)
         }
-
         viewModel.groupBuyingContent.observe(viewLifecycleOwner) {
             groupBuyingListAdapter.submitList(it)
         }
-
         viewModel.hotRecipeContent.observe(viewLifecycleOwner) {
             hotRecipeAdapter.submitList(it)
         }
@@ -60,9 +58,18 @@ class HomeFragment : Fragment() {
     // 이동 버튼 클릭 이벤트
     fun onMoveButton(view: View) {
         when(view.id) {
-            R.id.tv_community_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_communityFragment)
-            R.id.tv_group_buying_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_groupBuyingFragment)
-            R.id.tv_recipe_more_detail -> findNavController().navigate(R.id.action_homeFragment_to_recipemainFragment)
+            R.id.tv_community_more_detail -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToCommunityFragment("인기순")
+                findNavController().navigate(action)
+            }
+            R.id.tv_group_buying_more_detail -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToGroupBuyingFragment("마감임박순")
+                findNavController().navigate(action)
+            }
+            R.id.tv_recipe_more_detail -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToRecipemainFragment("인기순")
+                findNavController().navigate(action)
+            }
         }
     }
 

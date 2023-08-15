@@ -3,8 +3,11 @@ package com.umc.one_person_households_platform.view.common
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.umc.one_person_households_platform.network.ApiClient
+import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRemoteDataSource
+import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRepository
 import com.umc.one_person_households_platform.repository.home.HomeRemoteDataSource
 import com.umc.one_person_households_platform.repository.home.HomeRepository
+import com.umc.one_person_households_platform.view.groupbuying.GroupBuyingViewModel
 import com.umc.one_person_households_platform.view.home.HomeViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {
@@ -13,6 +16,10 @@ class ViewModelFactory : ViewModelProvider.Factory {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 val repository = HomeRepository(HomeRemoteDataSource(ApiClient.create()))
                 HomeViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(GroupBuyingViewModel::class.java) -> {
+                val repository = GroupBuyingRepository(GroupBuyingRemoteDataSource(ApiClient.create()))
+                GroupBuyingViewModel(repository) as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")

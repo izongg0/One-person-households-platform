@@ -1,6 +1,6 @@
 package com.umc.one_person_households_platform.network
-import com.umc.one_person_households_platform.BuildConfig
 
+import com.umc.one_person_households_platform.BuildConfig
 import com.umc.one_person_households_platform.model.*
 import retrofit2.Call
 import retrofit2.Response
@@ -9,6 +9,35 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 interface ApiClient {
+
+    // 홈 화면 마감 임박 공구 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/grouppurchase")
+    suspend fun getGroupBuyingCategories(): Response<GroupBuying>
+
+    // 홈 화면 커뮤니티 인기글 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/community")
+    suspend fun getCommunityCategories(): Response<Community>
+
+    // 홈 화면 금주 HOT 레시피 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/home/recipe")
+    suspend fun getHotRecipeCategory(): Response<HotRecipe>
+
+    // 공동 구매 화면 최신 공구, 마감 임박 공구 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/boards/grouppurchase")
+    suspend fun getGroupBuyingSort(
+        @Query("sort") sort: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
+    ): Response<GroupBuying>
+
+    // 공동 구매 화면 나머지 카테고리 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/boards/grouppurchase")
+    suspend fun getGroupBuyingCategory(
+        @Query("category") category: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
+    ): Response<GroupBuying>
 
     // 공동 구매 리스트 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
@@ -46,24 +75,6 @@ interface ApiClient {
     @POST("/app/comment/create")
     fun addCommunityComment(@Body commentData: CommentAddItems): Call<CommentAddResult>
 
-
-    // 홈 화면 마감 임박 공구 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/grouppurchase")
-    suspend fun getGroupBuyingCategories(): Response<GroupBuying>
-
-    // 홈 화면 커뮤니티 인기글 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/community")
-    suspend fun getCommunityCategories(): Response<Community>
-
-    // 홈 화면 금주 HOT 레시피 출력
-    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @GET("app/home/recipe")
-    suspend fun getHotRecipeCategory(): Response<HotRecipe>
-
-
-    // 레시피 목록 가져오기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/recipe")
     fun getRecipe(

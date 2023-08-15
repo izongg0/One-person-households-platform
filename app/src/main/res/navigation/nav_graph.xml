@@ -28,7 +28,12 @@
     <fragment
         android:id="@+id/groupBuyingFragment"
         android:name="com.umc.one_person_households_platform.view.groupbuying.GroupBuyingFragment"
-        android:label="GroupBuyingFragment" />
+        android:label="GroupBuyingFragment">
+        <argument
+            android:name="category"
+            android:defaultValue="최신순"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/communityFragment"
@@ -43,6 +48,10 @@
         <action
             android:id="@+id/action_communityFragment_to_postdetailFragment"
             app:destination="@id/postdetailFragment" />
+        <argument
+            android:name="category"
+            android:defaultValue="최신순"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/newpostFragment"
@@ -63,7 +72,13 @@
     <fragment
         android:id="@+id/recipemainFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.RecipemainFragment"
-        android:label="RecipemainFragment" />
+        android:label="RecipemainFragment">
+
+        <argument
+            android:name="category"
+            android:defaultValue="최신순"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/postdetailFragment"
