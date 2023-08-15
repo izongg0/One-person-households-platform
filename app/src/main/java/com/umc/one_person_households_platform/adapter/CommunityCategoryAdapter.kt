@@ -34,7 +34,7 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
 
     override fun getItemCount(): Int {
 
-        return realpostlist?.result?.items?.size ?: 0
+        return realpostlist?.result?.size ?: 0
 
     }
 
@@ -45,25 +45,26 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
 
 
         view.findViewById<TextView>(R.id.tv_posttitle).text =
-            realpostlist!!.result.items[position].title
+            realpostlist!!.result[position].title
+
         view.findViewById<TextView>(R.id.tv_author).text =
-            realpostlist!!.result.items[position].nickname
+            realpostlist!!.result[position].nickname
         view.findViewById<TextView>(R.id.tv_category).text =
-            realpostlist!!.result.items[position].category
+            realpostlist!!.result[position].category
         view.findViewById<TextView>(R.id.tv_distance).text =
-            realpostlist!!.result.items[position].distance.toString()
+            realpostlist!!.result[position].distance.toString()
         view.findViewById<TextView>(R.id.tv_time).text =
-            realpostlist!!.result.items[position].createAt
+            realpostlist!!.result[position].createAt
 
 
         Glide.with(view.context)
-            .load(realpostlist!!.result.items[position].imagePath)
+            .load(realpostlist!!.result[position].imagePath)
             .into(view.findViewById<ImageView>(R.id.iv_headimg))
 
-        view.findViewById<TextView>(R.id.tv_posttitle).setOnClickListener {
+        view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.cl_postclick).setOnClickListener {
 
             val bundle = Bundle()
-            bundle.putInt("this_post",realpostlist!!.result.items[position].postIdx ) // 데이터 추가
+            bundle.putInt("this_post",realpostlist!!.result[position].postIdx ) // 데이터 추가
 
             val navController = Navigation.findNavController(view)
             navController.navigate(R.id.action_communityFragment_to_postdetailFragment, bundle)
