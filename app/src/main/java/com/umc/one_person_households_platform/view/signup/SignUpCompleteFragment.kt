@@ -1,4 +1,4 @@
-package com.umc.one_person_households_platform.view.login
+package com.umc.one_person_households_platform.view.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
