@@ -38,36 +38,42 @@
             android:paddingTop="2dp"
             android:paddingEnd="4dp"
             android:paddingBottom="2dp"
+            android:text="@{groupBuying.category}"
             android:textColor="#C4C4C4"
             android:textSize="11sp"
-            android:text="@{groupBuying.category}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/view"
             tools:text="생활용품" />
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{groupBuying.title}"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_classification"
-            android:text="@{groupBuying.title}"
+            app:layout_constraintWidth_percent="0.70"
             tools:text="수세미 공구하실 분!" />
 
         <TextView
             android:id="@+id/tv_product_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{groupBuying.productName}"
             android:textColor="#8C8C8C"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@id/tv_title"
-            android:text="@{groupBuying.productName}"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintWidth_percent="0.70"
             tools:text="제품명: 다이소 수세미" />
 
         <TextView
@@ -76,12 +82,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="30dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text='@{groupBuying.nickname + " · " + groupBuying.distance + "m이내 · 마감기한 D-" + groupBuying.reamainDay}'
             android:textColor="@color/black"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_product_name"
-            tools:text="안경제비 · 1km이내 · 마감기한 D-0"
-            android:text='@{groupBuying.nickname + " · " + groupBuying.distance + "m이내 · 마감기한 D-" + groupBuying.reamainDay}'/>
+            app:layout_constraintWidth_percent="0.70"
+            tools:text="안경제비 · 1km이내 · 마감기한 D-0" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/siv_photo"
