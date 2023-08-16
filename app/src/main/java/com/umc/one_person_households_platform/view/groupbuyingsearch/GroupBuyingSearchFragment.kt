@@ -43,7 +43,7 @@ class GroupBuyingSearchFragment : Fragment() {
 
     // 검색어 입력 후 엔터 버튼 클릭
     private fun onEnterButtonClick() {
-        binding.etSearch.setOnEditorActionListener { text, action, _ ->
+        binding.etSearch.setOnEditorActionListener { _, action, _ ->
             when(action) {
                 EditorInfo.IME_ACTION_GO -> {
                     val adapter = GroupBuyingAdapter()
@@ -54,7 +54,7 @@ class GroupBuyingSearchFragment : Fragment() {
                     binding.view.visibility = INVISIBLE
 
                     lifecycleScope.launchWhenCreated {
-                        viewModel.getGroupBuyingSearchData(text.toString())
+                        viewModel.getGroupBuyingSearchData(binding.etSearch.text.toString())
 
                         viewModel.content.collectLatest {
                             adapter.submitData(it)
