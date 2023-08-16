@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.umc.one_person_households_platform.network.ApiClient
 import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRemoteDataSource
 import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRepository
+import com.umc.one_person_households_platform.repository.groupbuyingsearch.GroupBuyingSearchRemoteDataSource
+import com.umc.one_person_households_platform.repository.groupbuyingsearch.GroupBuyingSearchRepository
 import com.umc.one_person_households_platform.repository.home.HomeRemoteDataSource
 import com.umc.one_person_households_platform.repository.home.HomeRepository
 import com.umc.one_person_households_platform.view.groupbuying.GroupBuyingViewModel
+import com.umc.one_person_households_platform.view.groupbuyingsearch.GroupBuyingSearchViewModel
 import com.umc.one_person_households_platform.view.home.HomeViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {
@@ -20,6 +23,10 @@ class ViewModelFactory : ViewModelProvider.Factory {
             modelClass.isAssignableFrom(GroupBuyingViewModel::class.java) -> {
                 val repository = GroupBuyingRepository(GroupBuyingRemoteDataSource(ApiClient.create()))
                 GroupBuyingViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(GroupBuyingSearchViewModel::class.java) -> {
+                val repository = GroupBuyingSearchRepository(GroupBuyingSearchRemoteDataSource(ApiClient.create()))
+                GroupBuyingSearchViewModel(repository) as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")
