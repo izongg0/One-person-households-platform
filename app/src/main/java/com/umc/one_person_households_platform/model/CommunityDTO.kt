@@ -109,6 +109,18 @@ data class PostDeleteItems(
 
 
 
+data class PostHeartDTO(
+    val postIdx: Int,
+    val userIdx: Int
+
+)
+data class PostHeartResult(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: String
+)
+
 
 
 

@@ -115,14 +115,17 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
                         if (response.isSuccessful) {
                             // 성공적으로 응답이 도착한 경우
                             val result = response.body()
-                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                            Log.d("yyyyyyy", "성공 결과: ${result.toString()}")
                         } else {
+                            val result = response.body()
+
+                            Log.d("yyyyyyy", "성공 실패: ${result.toString()}")
 
                         }
                     }
 
                     override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
-                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                        Log.d("yyyyyyy", "오류 처리: ${t.toString()}")
                     }
                 })
 

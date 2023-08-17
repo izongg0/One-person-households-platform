@@ -86,6 +86,15 @@ interface ApiClient {
     @DELETE("/app/post/app/post/delete")
     fun deletePost(@Body deleteItem: PostDeleteDTO): Call<PostDeleteItems>
 
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart")
+    fun addHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
+    // 게시글 공감하기
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart/cancel")
+    fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
 
     // 레시피 목록 가져오기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
