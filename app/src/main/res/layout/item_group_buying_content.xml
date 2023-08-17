@@ -6,7 +6,11 @@
     <data>
 
         <variable
-            name="groupBuying"
+            name="event"
+            type="com.umc.one_person_households_platform.view.common.OnClickInterface" />
+
+        <variable
+            name="content"
             type="com.umc.one_person_households_platform.model.GroupBuyingContent" />
     </data>
 
@@ -14,6 +18,7 @@
         android:id="@+id/cl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick='@{() -> event.onClick(content.postIdx ,"공동구매")}'
         android:paddingBottom="8dp">
 
         <View
@@ -38,7 +43,7 @@
             android:paddingTop="2dp"
             android:paddingEnd="4dp"
             android:paddingBottom="2dp"
-            android:text="@{groupBuying.category}"
+            android:text="@{content.category}"
             android:textColor="#C4C4C4"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +58,7 @@
             android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{groupBuying.title}"
+            android:text="@{content.title}"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +73,7 @@
             android:layout_marginTop="3dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{groupBuying.productName}"
+            android:text="@{content.productName}"
             android:textColor="#8C8C8C"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@id/tv_title"
@@ -84,7 +89,7 @@
             android:layout_marginBottom="30dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text='@{groupBuying.nickname + " · " + groupBuying.distance + "m이내 · 마감기한 D-" + groupBuying.reamainDay}'
+            android:text='@{content.nickname + " · " + content.distance + "m이내 · 마감기한 D-" + content.reamainDay}'
             android:textColor="@color/black"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@id/tv_title"

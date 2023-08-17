@@ -9,9 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentHomeBinding
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 import com.umc.one_person_households_platform.view.common.ViewModelFactory
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnClickInterface {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -36,9 +37,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        val communityAdapter = HomeCommunityAdapter()
-        val groupBuyingListAdapter = HomeGroupBuyingAdapter()
-        val hotRecipeAdapter = HomeHotRecipeAdapter()
+        val communityAdapter = HomeCommunityAdapter(this)
+        val groupBuyingListAdapter = HomeGroupBuyingAdapter(this)
+        val hotRecipeAdapter = HomeHotRecipeAdapter(this)
 
         binding.rvCommunity.adapter = communityAdapter
         binding.rvGroupBuying.adapter = groupBuyingListAdapter
@@ -55,7 +56,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    // 이동 버튼 클릭 이벤트
+    // 더 보기 이동
     fun onMoveButton(view: View) {
         when(view.id) {
             R.id.tv_community_more_detail -> {
@@ -68,6 +69,24 @@ class HomeFragment : Fragment() {
             }
             R.id.tv_recipe_more_detail -> {
                 val action = HomeFragmentDirections.actionHomeFragmentToRecipemainFragment("인기순")
+                findNavController().navigate(action)
+            }
+        }
+    }
+
+    // 게시글 상세 화면 이동
+    override fun onClick(postIdx: Int, category: String) {
+        when(category) {
+            "커뮤니티" -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToPostdetailFragment(postIdx)
+                findNavController().navigate(action)
+            }
+            "공동구매" -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToGroupBuyingDetailFragment(postIdx)
+                findNavController().navigate(action)
+            }
+            "레시피" -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToRecipedetailFragment(postIdx)
                 findNavController().navigate(action)
             }
         }

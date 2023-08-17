@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.databinding.ItemHomeHotRecipeListBinding
 import com.umc.one_person_households_platform.model.HotRecipeContent
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 
-class HomeHotRecipeAdapter : ListAdapter<HotRecipeContent, HomeHotRecipeAdapter.ViewHolder>(HotRecipeDiffCallback()) {
+class HomeHotRecipeAdapter(private val onClick: OnClickInterface) : ListAdapter<HotRecipeContent, HomeHotRecipeAdapter.ViewHolder>(HotRecipeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemHomeHotRecipeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,6 +24,7 @@ class HomeHotRecipeAdapter : ListAdapter<HotRecipeContent, HomeHotRecipeAdapter.
     inner class ViewHolder(private val binding: ItemHomeHotRecipeListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: HotRecipeContent) {
             with(binding) {
+                event = onClick
                 hotRecipe = item
 
                 Glide.with(itemView)

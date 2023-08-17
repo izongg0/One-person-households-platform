@@ -12,11 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingSearchBinding
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 import com.umc.one_person_households_platform.view.common.ViewModelFactory
 import com.umc.one_person_households_platform.view.groupbuying.GroupBuyingAdapter
 import kotlinx.coroutines.flow.collectLatest
 
-class GroupBuyingSearchFragment : Fragment() {
+class GroupBuyingSearchFragment : Fragment(), OnClickInterface {
 
     private var _binding: FragmentGroupBuyingSearchBinding? = null
     private val binding get() = _binding!!
@@ -46,7 +47,7 @@ class GroupBuyingSearchFragment : Fragment() {
         binding.etSearch.setOnEditorActionListener { _, action, _ ->
             when(action) {
                 EditorInfo.IME_ACTION_GO -> {
-                    val adapter = GroupBuyingAdapter()
+                    val adapter = GroupBuyingAdapter(this)
                     binding.rvContent.adapter = adapter
 
                     binding.tvDescription.visibility = INVISIBLE
@@ -70,6 +71,12 @@ class GroupBuyingSearchFragment : Fragment() {
     // 뒤로 가기 버튼 클릭
     fun onBackButton() {
         findNavController().navigateUp()
+    }
+
+    // 게시글 상세 화면 이동
+    override fun onClick(postIdx: Int, category: String) {
+        val action = GroupBuyingSearchFragmentDirections.actionGroupBuyingSearchFragmentToGroupBuyingDetailFragment(postIdx)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

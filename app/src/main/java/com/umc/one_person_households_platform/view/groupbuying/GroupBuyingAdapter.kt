@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.databinding.ItemGroupBuyingContentBinding
 import com.umc.one_person_households_platform.model.GroupBuyingContent
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 
-class GroupBuyingAdapter : PagingDataAdapter<GroupBuyingContent, GroupBuyingAdapter.ViewHolder>(GroupBuyingDiffCallback()) {
+class GroupBuyingAdapter(private val onClick: OnClickInterface) : PagingDataAdapter<GroupBuyingContent, GroupBuyingAdapter.ViewHolder>(GroupBuyingDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemGroupBuyingContentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,7 +26,8 @@ class GroupBuyingAdapter : PagingDataAdapter<GroupBuyingContent, GroupBuyingAdap
     inner class ViewHolder(private val binding: ItemGroupBuyingContentBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: GroupBuyingContent) {
             with(binding) {
-                groupBuying = item
+                event = onClick
+                content = item
 
                 Glide.with(itemView)
                     .load(item.imagePath)
