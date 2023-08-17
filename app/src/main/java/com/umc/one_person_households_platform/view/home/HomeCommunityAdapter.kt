@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.umc.one_person_households_platform.databinding.ItemHomeCommunityListBinding
 import com.umc.one_person_households_platform.model.CommunityContent
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 
-class HomeCommunityAdapter : ListAdapter<CommunityContent, HomeCommunityAdapter.ViewHolder>(CommunityDiffCallback()) {
+class HomeCommunityAdapter(private val onClick: OnClickInterface) : ListAdapter<CommunityContent, HomeCommunityAdapter.ViewHolder>(CommunityDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemHomeCommunityListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,6 +24,7 @@ class HomeCommunityAdapter : ListAdapter<CommunityContent, HomeCommunityAdapter.
     inner class ViewHolder(private val binding: ItemHomeCommunityListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: CommunityContent) {
             with(binding) {
+                event = onClick
                 community = item
 
                 Glide.with(itemView)

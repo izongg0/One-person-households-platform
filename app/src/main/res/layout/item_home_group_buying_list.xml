@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="event"
+            type="com.umc.one_person_households_platform.view.common.OnClickInterface" />
+
+        <variable
             name="groupBuying"
             type="com.umc.one_person_households_platform.model.GroupBuyingContent" />
     </data>
@@ -13,7 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick='@{() -> event.onClick(groupBuying.postIdx, "공동구매")}'>
 
         <TextView
             android:id="@+id/tv_classification"

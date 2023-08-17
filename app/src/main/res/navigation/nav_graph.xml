@@ -24,6 +24,18 @@
             app:destination="@id/communityFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupBuyingDetailFragment"
+            app:destination="@id/groupBuyingDetailFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_postdetailFragment"
+            app:destination="@id/postdetailFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recipedetailFragment"
+            app:destination="@id/recipedetailFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 
     <fragment
@@ -37,12 +49,28 @@
         <action
             android:id="@+id/action_groupBuyingFragment_to_groupBuyingSearchFragment"
             app:destination="@id/groupBuyingSearchFragment" />
+        <action
+            android:id="@+id/action_groupBuyingFragment_to_groupBuyingDetailFragment"
+            app:destination="@id/groupBuyingDetailFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/groupBuyingSearchFragment"
         android:name="com.umc.one_person_households_platform.view.groupbuyingsearch.GroupBuyingSearchFragment"
-        android:label="GroupBuyingSearchFragment" />
+        android:label="GroupBuyingSearchFragment" >
+        <action
+            android:id="@+id/action_groupBuyingSearchFragment_to_groupBuyingDetailFragment"
+            app:destination="@id/groupBuyingDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/groupBuyingDetailFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuyingdetail.GroupBuyingDetailFragment"
+        android:label="GroupBuyingDetailFragment">
+        <argument
+            android:name="postIdx"
+            app:argType="integer" />
+    </fragment>
 
     <fragment
         android:id="@+id/communityFragment"
@@ -108,6 +136,9 @@
         <action
             android:id="@+id/action_postdetailFragment_to_reportFragment"
             app:destination="@id/reportFragment" />
+        <argument
+            android:name="postIdx"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
@@ -135,6 +166,9 @@
         <action
             android:id="@+id/action_recipedetailFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
+        <argument
+            android:name="postIdx"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/scrapFragment"

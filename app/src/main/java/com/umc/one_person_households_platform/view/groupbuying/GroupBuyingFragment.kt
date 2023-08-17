@@ -11,10 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingBinding
+import com.umc.one_person_households_platform.view.common.OnClickInterface
 import com.umc.one_person_households_platform.view.common.ViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 
-class GroupBuyingFragment : Fragment() {
+class GroupBuyingFragment : Fragment(), OnClickInterface {
 
     private var _binding: FragmentGroupBuyingBinding? = null
     private val binding get() = _binding!!
@@ -40,18 +41,18 @@ class GroupBuyingFragment : Fragment() {
         if (args.category == "마감임박순") {
             binding.rbImminentDeadline.isChecked = true
             onCategoryButtonClick(binding.rbImminentDeadline)
-        }else {
+        } else {
             onCategoryButtonClick(binding.rbRecent)
         }
     }
 
     // 공동 구매 탭 클릭
     fun onCategoryButtonClick(view: View) {
-        val adapter = GroupBuyingAdapter()
+        val adapter = GroupBuyingAdapter(this)
         binding.rvContent.adapter = adapter
 
         lifecycleScope.launchWhenCreated {
-            when(view.id) {
+            when (view.id) {
                 R.id.rb_recent -> viewModel.getGroupBuyingRecentData()
                 R.id.rb_imminent_deadline -> viewModel.getGroupBuyingImminentData()
                 R.id.rb_household_goods -> viewModel.getGroupBuyingHouseholdGoodsData()
@@ -65,9 +66,15 @@ class GroupBuyingFragment : Fragment() {
         }
     }
 
-    // 검색 버튼 클릭
+    // 검색 화면 이동
     fun onSearchButtonClick() {
         findNavController().navigate(R.id.action_groupBuyingFragment_to_groupBuyingSearchFragment)
+    }
+
+    // 게시글 상세 화면 이동
+    override fun onClick(postIdx: Int, category: String) {
+        val action = GroupBuyingFragmentDirections.actionGroupBuyingFragmentToGroupBuyingDetailFragment(postIdx)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
