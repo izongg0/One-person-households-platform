@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
@@ -55,6 +56,17 @@ class RecipemainFragment : Fragment() {
         }
 
 
+        binding.tvSearchArea.setOnClickListener {
+
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_recipemainFragment_to_recipesearchFragment)
+        }
+
+        binding.ivMoveBookmark.setOnClickListener {
+
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_recipemainFragment_to_scrapFragment)
+        }
 
         return binding.root
     }
