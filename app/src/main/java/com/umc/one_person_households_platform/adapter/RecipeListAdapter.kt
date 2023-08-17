@@ -17,6 +17,8 @@ import com.umc.one_person_households_platform.model.ApiResponse
 import com.umc.one_person_households_platform.model.CommunityDTO
 import com.umc.one_person_households_platform.model.CommunityDetailDTO
 import com.umc.one_person_households_platform.model.RecipeDTO
+import com.umc.one_person_households_platform.model.RecipeScrapBody
+import com.umc.one_person_households_platform.model.RecipeScrapResponse
 import com.umc.one_person_households_platform.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -88,7 +90,90 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
             view.findViewById<ImageView>(R.id.iv_scrap).setImageResource(R.drawable.btn_recipe_bookmark_non)
 
         }
+        var scrapcount = recipelist!!.result[position].likeCount
 
+        view.findViewById<ImageView>(R.id.iv_scrap).setOnClickListener {
+
+
+            if (recipelist!!.result[position].likeStatus){
+                recipelist!!.result[position].likeStatus = false
+                view.findViewById<ImageView>(R.id.iv_scrap).setImageResource(R.drawable.btn_recipe_bookmark_non)
+
+                scrapcount = scrapcount -1
+                view.findViewById<TextView>(R.id.tv_scrapcount).text =
+                    scrapcount.toString()
+
+                val addscrap = RecipeScrapBody(recipelist!!.result[position].postIdx,3)
+                val apiService = ApiClient.create()
+                val call = apiService.cancelRecipeBookmark(addscrap)
+
+                call.enqueue(object : Callback<RecipeScrapResponse> {
+                    override fun onResponse(
+                        call: Call<RecipeScrapResponse>,
+                        response: Response<RecipeScrapResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+
+
+            }else{
+                view.findViewById<ImageView>(R.id.iv_scrap).setImageResource(R.drawable.btn_recipe_bookmark_clicked)
+                recipelist!!.result[position].likeStatus = true
+
+                scrapcount = scrapcount + 1
+
+                view.findViewById<TextView>(R.id.tv_scrapcount).text =
+                    scrapcount.toString()
+
+                val addscrap = RecipeScrapBody(recipelist!!.result[position].postIdx,3)
+                val apiService = ApiClient.create()
+                val call = apiService.addRecipeBookmark(addscrap)
+
+                call.enqueue(object : Callback<RecipeScrapResponse> {
+                    override fun onResponse(
+                        call: Call<RecipeScrapResponse>,
+                        response: Response<RecipeScrapResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+            }
+
+        }
+
+
+
+
+        view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.cl_click).setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putInt("recipe_post",recipelist!!.result[position].postIdx ) // 데이터 추가
+
+            val navController = Navigation.findNavController(view)
+            navController.navigate(R.id.action_recipemainFragment_to_recipedetailFragment, bundle)
+
+        }
 
 
 //        Glide.with(view.context)
