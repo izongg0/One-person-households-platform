@@ -46,7 +46,7 @@ interface ApiClient {
         @Query("query") query: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
     ): Response<GroupBuying>
 
-    // 커뮤니티 리스트 
+    // 커뮤니티 리스트 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/community")
     fun getCommunity(
@@ -92,6 +92,16 @@ interface ApiClient {
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @DELETE("/app/post/app/post/delete")
     fun deletePost(@Body deleteItem: PostDeleteDTO): Call<PostDeleteItems>
+
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart")
+    fun addHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
+    // 게시글 공감하기
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart/cancel")
+    fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
 
 
     // 레시피 목록 가져오기
