@@ -29,6 +29,7 @@ import com.umc.one_person_households_platform.model.PostHeartDTO
 import com.umc.one_person_households_platform.model.PostHeartResult
 import com.umc.one_person_households_platform.model.RecipeScrapBody
 import com.umc.one_person_households_platform.model.RecipeScrapResponse
+
 import com.umc.one_person_households_platform.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -216,6 +217,7 @@ class PostdetailFragment : Fragment() {
 //        val myData = arguments?.getInt("this_post")
 
         var postdetailcontent: CommunityDetailDTO? = null
+
 
         val apiClient = ApiClient.create()
 

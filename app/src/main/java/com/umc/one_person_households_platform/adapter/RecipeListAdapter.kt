@@ -126,6 +126,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
                     override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
                         Log.d("yyyyyyy", "오류 처리: ${t.toString()}")
+
                     }
                 })
 

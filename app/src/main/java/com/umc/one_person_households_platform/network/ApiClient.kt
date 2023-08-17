@@ -103,6 +103,7 @@ interface ApiClient {
     fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
 
 
+
     // 레시피 목록 가져오기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/recipe")
