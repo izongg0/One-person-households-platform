@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
@@ -114,6 +115,15 @@
             android:name="category"
             android:defaultValue="최신순"
             app:argType="string" />
+        <action
+            android:id="@+id/action_recipemainFragment_to_recipesearchFragment"
+            app:destination="@id/recipesearchFragment" />
+        <action
+            android:id="@+id/action_recipemainFragment_to_recipedetailFragment"
+            app:destination="@id/recipedetailFragment" />
+        <action
+            android:id="@+id/action_recipemainFragment_to_scrapFragment"
+            app:destination="@id/scrapFragment" />
     </fragment>
 
     <fragment
@@ -139,12 +149,34 @@
             app:destination="@id/postdetailFragment" />
     </fragment>
     <fragment
+        android:id="@+id/recipesearchFragment"
+        android:name="com.umc.one_person_households_platform.view.recipe.RecipesearchFragment"
+        android:label="RecipesearchFragment" >
+        <action
+            android:id="@+id/action_recipesearchFragment_to_recipemainFragment"
+            app:destination="@id/recipemainFragment" />
+        <action
+            android:id="@+id/action_recipesearchFragment_to_recipedetailFragment"
+            app:destination="@id/recipedetailFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/recipedetailFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.RecipedetailFragment"
-        android:label="RecipedetailFragment">
-
+        android:label="RecipedetailFragment" >
+        <action
+            android:id="@+id/action_recipedetailFragment_to_recipemainFragment"
+            app:destination="@id/recipemainFragment" />
         <argument
             android:name="postIdx"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/scrapFragment"
+        android:name="com.umc.one_person_households_platform.view.recipe.ScrapFragment"
+        android:label="fragment_scrap"
+        tools:layout="@layout/fragment_scrap" >
+        <action
+            android:id="@+id/action_scrapFragment_to_recipemainFragment"
+            app:destination="@id/recipemainFragment" />
     </fragment>
 </navigation>

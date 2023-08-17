@@ -53,11 +53,17 @@ interface ApiClient {
         @Query("postIdx") postIdx: Int
     ): Response<GroupBuyingDetail>
 
-    // 공동 구매 리스트 출력
+    // 커뮤니티 리스트 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/community")
     fun getCommunity(
         @Query("category") query: String, @Query("limit") limit: Int // 검색어 파라미터
+    ): Call<CommunityDTO>
+
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("/app/boards/community")
+    fun getCommunitySort(
+        @Query("sort") query: String // 검색어 파라미터
     ): Call<CommunityDTO>
 
     // 커뮤니티 게시글 검색
@@ -89,6 +95,21 @@ interface ApiClient {
     @POST("/app/comment/create")
     fun addCommunityComment(@Body commentData: CommentAddItems): Call<CommentAddResult>
 
+    //게시글 삭제
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @DELETE("/app/post/app/post/delete")
+    fun deletePost(@Body deleteItem: PostDeleteDTO): Call<PostDeleteItems>
+
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart")
+    fun addHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
+    // 게시글 공감하기
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("/app/post/heart/cancel")
+    fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+
+    // 레시피 목록 가져오기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/recipe")
     fun getRecipe(
@@ -103,6 +124,18 @@ interface ApiClient {
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @POST("/app/post/scrap/cancel")
     fun cancelRecipeBookmark(@Body scrapitem: RecipeScrapBody): Call<RecipeScrapResponse>
+
+    // 레시피 검색
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("/app/boards/recipe/search")
+    fun getRecipeSearch(
+        @Query("query") query: String // 검색어 파라미터
+    ): Call<RecipeDTO>
+
+    // 레시피 디테일
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("/app/post/get")
+    fun getRecipeDetail(@Query("postIdx") postId: Int): Call<RecipeDetail>
 
     companion object {
 

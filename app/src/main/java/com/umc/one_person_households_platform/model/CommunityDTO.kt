@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.sql.Timestamp
 
 
-
+// 커뮤니티 게시글 목록
 data class CommunityDTO(
     val isSuccess: Boolean,
     val code: Int,
@@ -28,7 +28,6 @@ data class CommunityPost(
 
 
 // 커뮤니티 게시글 디테일 페이지
-
 data class CommunityDetailDTO(
 
     @SerializedName("isSuccess") val isSuccess: String,
@@ -94,7 +93,33 @@ data class CommentResultData(
     val result: Int
 )
 
+//게시글 삭제
 
+data class PostDeleteDTO(
+    val postIdx: Int,
+    val userIdx: Int
+
+)
+data class PostDeleteItems(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: String
+)
+
+
+
+data class PostHeartDTO(
+    val postIdx: Int,
+    val userIdx: Int
+
+)
+data class PostHeartResult(
+    val isSuccess: String,
+    val code: Int,
+    val message: String,
+    val result: String
+)
 
 
 

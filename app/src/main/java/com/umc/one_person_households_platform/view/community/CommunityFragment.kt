@@ -46,32 +46,75 @@ class CommunityFragment : Fragment() {
         var question = binding.rbQuestion
         var communicate = binding.rbCommunicate
         var share = binding.rbShare
+//        var selectedCategory = "최신순"
 
+        callApiSort("최신순")
 
-        callApi("최신글")
+//        when (selectedCategory) {
+//            "최신글" -> {
+//                binding.rbLatest.isChecked = true
+//                callApiSort("최신순")
+//
+//            }
+//            "인기글" -> {
+//
+//                binding.rbPopular.isChecked = true
+//                callApiSort("인기글")
+//
+//            }
+//            "맛집이야기" -> {
+//                binding.rbDelicious.isChecked = true
+//                callApi("맛집이야기")
+//
+//            }
+//            "질문있어요" -> {
+//
+//                binding.rbQuestion.isChecked = true
+//                callApi("질문있어요")
+//
+//            }
+//            "대화해요" -> {
+//
+//                binding.rbCommunicate.isChecked = true
+//                callApi("대화해요")
+//
+//            }
+//            "공유해요" -> {
+//
+//                binding.rbShare.isChecked = true
+//                callApi("공유해요")
+//
+//            }
+//        }
 
         latestbtn.setOnClickListener {
-            callApi("최신글")
+//            selectedCategory = "최신순"
+            callApiSort("최신순")
         }
         popularbtn.setOnClickListener {
-            callApi("인기글")
+//            selectedCategory = "인기순"
+            callApiSort("인기순")
 
         }
         delicious.setOnClickListener {
+//            selectedCategory = "맛집이야기"
             callApi("맛집이야기")
 
         }
 
         question.setOnClickListener {
+//            selectedCategory = "질문있어요"
             callApi("질문있어요")
 
         }
         communicate.setOnClickListener {
+//            selectedCategory = "대화해요"
             callApi("대화해요")
 
         }
 
         share.setOnClickListener {
+//            selectedCategory = "공유해요"
             callApi("공유해요")
 
         }
@@ -90,27 +133,27 @@ class CommunityFragment : Fragment() {
                 .navigate(R.id.action_communityFragment_to_searchFragment)
 
         }
-
+//
 
         return binding.root
     }
 
 
-    fun callApi(category: String) {
+    fun callApiSort(sort: String) {
 
         val apiClient = ApiClient.create()
 
-        apiClient.getCommunity(category, 0).enqueue(object : Callback<CommunityDTO> {
+        apiClient.getCommunitySort(sort).enqueue(object : Callback<CommunityDTO> {
             override fun onResponse(call: Call<CommunityDTO>, response: Response<CommunityDTO>) {
                 if (response.isSuccessful) {
                     var postlist = response.body()
 
-                    Log.d("fltmxm",postlist.toString())
+                    Log.d("fltmxm", postlist.toString())
                     if (postlist != null) {
 
                         postAdapter = CommunityCategoryAdapter(postlist!!)
                         binding.rvPostlist.adapter = postAdapter
-                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext(),)
+                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext())
 
                     }
 
@@ -127,4 +170,37 @@ class CommunityFragment : Fragment() {
 
     }
 
+
+    fun callApi(category: String) {
+
+        val apiClient = ApiClient.create()
+
+        apiClient.getCommunity(category, 0).enqueue(object : Callback<CommunityDTO> {
+            override fun onResponse(call: Call<CommunityDTO>, response: Response<CommunityDTO>) {
+                if (response.isSuccessful) {
+                    var postlist = response.body()
+
+                    Log.d("fltmxm", postlist.toString())
+                    if (postlist != null) {
+
+                        postAdapter = CommunityCategoryAdapter(postlist!!)
+                        binding.rvPostlist.adapter = postAdapter
+                        binding.rvPostlist.layoutManager = LinearLayoutManager(requireContext())
+
+                    }
+
+
+                } else {
+                    Log.e("ApiError", "API 요청 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<CommunityDTO>, t: Throwable) {
+                Log.e("ApiError", "API 요청 실패", t)
+            }
+        })
+
+    }
 }
+
+

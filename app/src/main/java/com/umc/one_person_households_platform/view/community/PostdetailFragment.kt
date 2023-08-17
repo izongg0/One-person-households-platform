@@ -1,5 +1,6 @@
 package com.umc.one_person_households_platform.view.community
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,13 @@ import com.umc.one_person_households_platform.model.CommentItems
 import com.umc.one_person_households_platform.model.CommunityAddpostDTO
 import com.umc.one_person_households_platform.model.CommunityComment
 import com.umc.one_person_households_platform.model.CommunityDetailDTO
+import com.umc.one_person_households_platform.model.PostDeleteDTO
+import com.umc.one_person_households_platform.model.PostDeleteItems
+import com.umc.one_person_households_platform.model.PostHeartDTO
+import com.umc.one_person_households_platform.model.PostHeartResult
+import com.umc.one_person_households_platform.model.RecipeScrapBody
+import com.umc.one_person_households_platform.model.RecipeScrapResponse
+
 import com.umc.one_person_households_platform.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,13 +57,17 @@ class PostdetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_postdetail, container, false)
+        val myData = arguments?.getInt("this_post")
 
 
         binding.ivBackmove.setOnClickListener {
             Navigation.findNavController(binding.root)
                 .navigate(R.id.action_postdetailFragment_to_communityFragment)
         }
+
+
         binding.tvEmpathybtn.setOnClickListener {
+
             if (isEmpathyClicked) {
                 binding.tvEmpathybtn.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.btn_community_thumb_clicked,
@@ -62,8 +75,58 @@ class PostdetailFragment : Fragment() {
                     0,
                     0
                 )
+
+                val addscrap = PostHeartDTO(myData!!,3)
+                val apiService = ApiClient.create()
+                val call = apiService.addHeartPost(addscrap)
+
+                call.enqueue(object : Callback<PostHeartResult> {
+                    override fun onResponse(
+                        call: Call<PostHeartResult>,
+                        response: Response<PostHeartResult>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PostHeartResult>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+
+
+
                 binding.tvEmpathybtn.setTextColor(Color.rgb(255, 182, 41))
             } else {
+
+                val addscrap = PostHeartDTO(myData!!,3)
+                val apiService = ApiClient.create()
+                val call = apiService.cancelHeartPost(addscrap)
+
+                call.enqueue(object : Callback<PostHeartResult> {
+                    override fun onResponse(
+                        call: Call<PostHeartResult>,
+                        response: Response<PostHeartResult>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PostHeartResult>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+
                 binding.tvEmpathybtn.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.btn_community_thumb,
                     0,
@@ -76,35 +139,154 @@ class PostdetailFragment : Fragment() {
             isEmpathyClicked = !isEmpathyClicked
         }
 
+
+        // 스크랩느낌?
         binding.tvInterestbtn.setOnClickListener {
             if (isInterestClicked) {
-                binding.tvEmpathybtn.setCompoundDrawablesWithIntrinsicBounds(
+                binding.tvInterestbtn.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.btn_community_heart_clicked,
                     0,
                     0,
                     0
                 )
-                binding.tvEmpathybtn.setTextColor(Color.rgb(255, 182, 41))
+
+                val addscrap = RecipeScrapBody(myData!!,3)
+                val apiService = ApiClient.create()
+                val call = apiService.addRecipeBookmark(addscrap)
+
+                call.enqueue(object : Callback<RecipeScrapResponse> {
+                    override fun onResponse(
+                        call: Call<RecipeScrapResponse>,
+                        response: Response<RecipeScrapResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
+                        Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+                    }
+                })
+
+                binding.tvInterestbtn.setTextColor(Color.rgb(255, 182, 41))
             } else {
-                binding.tvEmpathybtn.setCompoundDrawablesWithIntrinsicBounds(
+                binding.tvInterestbtn.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.btn_community_heart,
                     0,
                     0,
                     0
                 )
-                binding.tvEmpathybtn.setTextColor(Color.rgb(134, 134, 134))
+
+                val addscrap = RecipeScrapBody(myData!!,3)
+                val apiService = ApiClient.create()
+                val call = apiService.cancelRecipeBookmark(addscrap)
+
+                call.enqueue(object : Callback<RecipeScrapResponse> {
+                    override fun onResponse(
+                        call: Call<RecipeScrapResponse>,
+                        response: Response<RecipeScrapResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
+                            val result = response.body()
+                            Log.d("bbbbb", "성공 결과: ${result.toString()}")
+                        } else {
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RecipeScrapResponse>, t: Throwable) {
+                        Log.d("bbbbb", "오류 처리: ${t.toString()}")
+                    }
+                })
+
+                binding.tvInterestbtn.setTextColor(Color.rgb(134, 134, 134))
             }
 
             isInterestClicked = !isInterestClicked
         }
 
 
+
+
+//        val myData = arguments?.getInt("this_post")
+
+        var postdetailcontent: CommunityDetailDTO? = null
+
+
+        val apiClient = ApiClient.create()
+
         binding.ivMorebtn.setOnClickListener {
 
-            val orderBottomDialogFragment: PostMorebtnFragment = PostMorebtnFragment() {
+
+            // if 해당 게시글 userId와 로그인 본인 userId  비교하여 다이얼로그 띄우기
+
+
+            val orderBottomDialogFragment: PostMorebtnMeFragment = PostMorebtnMeFragment() {
+
                 when (it) {
-                    0 -> Navigation.findNavController(binding.root)
-                        .navigate(R.id.action_postdetailFragment_to_reportFragment)
+                    0 -> {
+                        //게시글 삭제
+
+
+                        val myLayout = layoutInflater.inflate(R.layout.fragment_common_yes_or_no, null)
+                        myLayout.findViewById<TextView>(R.id.tv_question).text = "삭제하시겠습니까?"
+                        myLayout.findViewById<TextView>(R.id.tv_check).text = "확인"
+
+                        val build = AlertDialog.Builder(view?.context).apply {
+                            setView(myLayout)
+                        }
+                        val dialog = build.create()
+                        dialog.show()
+
+                        myLayout.findViewById<TextView>(R.id.tv_cancel).setOnClickListener {
+
+                            dialog.dismiss()
+                        }
+                        myLayout.findViewById<TextView>(R.id.tv_check).setOnClickListener {
+                            // 삭제 구현
+                            val deleteItem = PostDeleteDTO(3,myData!!) // 삭제할 게시글의 ID
+                            val apiService = ApiClient.create() // ApiService를 생성하는 방법에 따라 생성
+                            val call = apiService.deletePost(deleteItem)
+
+                            call.enqueue(object : Callback<PostDeleteItems> {
+                                override fun onResponse(
+                                    call: Call<PostDeleteItems>,
+                                    response: Response<PostDeleteItems>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        // 성공적으로 응답이 도착한 경우
+                                        val result = response.body()
+                                        // 처리 로직 추가
+                                        Log.d("hhhhhh", "성공 결과: ${result.toString()}")
+
+                                    } else {
+                                        // 오류 처리 로직 추가
+                                        val result = response.body()
+
+                                        Log.d("hhhhhh", "실패 결과: ${result.toString()}")
+
+
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<PostDeleteItems>, t: Throwable) {
+                                    // 오류 처리 로직 추가
+                                    Log.d("hhhhhh", "오류 처리: ${t.toString()}")
+
+                                }
+                            })
+
+
+                            dialog.dismiss()
+                        }
+
+                    }
                     1 -> Navigation.findNavController(binding.root)
                         .navigate(R.id.action_postdetailFragment_to_reportFragment)
 
@@ -112,14 +294,21 @@ class PostdetailFragment : Fragment() {
 
             }
             orderBottomDialogFragment.show(parentFragmentManager, orderBottomDialogFragment.tag)
+
+//            val orderBottomDialogFragment: PostMorebtnFragment = PostMorebtnFragment() {
+//
+//                when (it) {
+//                    0 -> Navigation.findNavController(binding.root)
+//                        .navigate(R.id.action_postdetailFragment_to_reportFragment)
+//                    1 -> Navigation.findNavController(binding.root)
+//                        .navigate(R.id.action_postdetailFragment_to_reportFragment)
+//
+//                }
+//
+//            }
+//            orderBottomDialogFragment.show(parentFragmentManager, orderBottomDialogFragment.tag)
         }
 
-//        val myData = arguments?.getInt("this_post")
-
-        var postdetailcontent: CommunityDetailDTO? = null
-        val myData = arguments?.getInt("this_post")
-
-        val apiClient = ApiClient.create()
 
         apiClient.getPostDetail(myData!!).enqueue(object : Callback<CommunityDetailDTO> {
             override fun onResponse(
