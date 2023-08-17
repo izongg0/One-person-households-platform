@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.databinding.FragmentGroupBuyingBinding
@@ -62,6 +63,11 @@ class GroupBuyingFragment : Fragment() {
                 adapter.submitData(it)
             }
         }
+    }
+
+    // 검색 버튼 클릭
+    fun onSearchButtonClick() {
+        findNavController().navigate(R.id.action_groupBuyingFragment_to_groupBuyingSearchFragment)
     }
 
     override fun onDestroyView() {

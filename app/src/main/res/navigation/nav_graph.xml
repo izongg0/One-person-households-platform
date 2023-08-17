@@ -34,7 +34,15 @@
             android:name="category"
             android:defaultValue="최신순"
             app:argType="string" />
+        <action
+            android:id="@+id/action_groupBuyingFragment_to_groupBuyingSearchFragment"
+            app:destination="@id/groupBuyingSearchFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/groupBuyingSearchFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuyingsearch.GroupBuyingSearchFragment"
+        android:label="GroupBuyingSearchFragment" />
 
     <fragment
         android:id="@+id/communityFragment"

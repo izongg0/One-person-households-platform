@@ -39,7 +39,14 @@ interface ApiClient {
         @Query("category") category: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
     ): Response<GroupBuying>
 
-    // 커뮤니티 리스트 출력
+    // 공동 구매 검색 화면 검색 결과 출력
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @GET("app/boards/grouppurchase/search")
+    suspend fun getGroupBuyingSearch(
+        @Query("query") query: String, @Query("startIdx") startIdx: Int, @Query("size") size: Int
+    ): Response<GroupBuying>
+
+    // 커뮤니티 리스트 
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/community")
     fun getCommunity(
