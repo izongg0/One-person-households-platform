@@ -36,10 +36,14 @@ class GroupBuyingSearchFragment : Fragment(), OnClickInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        init()
+        onEnterButtonClick()
+    }
+
+    // 초기 설정
+    private fun init() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.search = this
-
-        onEnterButtonClick()
     }
 
     // 검색어 입력 후 엔터 버튼 클릭
@@ -69,12 +73,12 @@ class GroupBuyingSearchFragment : Fragment(), OnClickInterface {
     }
 
     // 뒤로 가기 버튼 클릭
-    fun onBackButton() {
+    fun onBackButtonClick() {
         findNavController().navigateUp()
     }
 
     // 게시글 상세 화면 이동
-    override fun onClick(postIdx: Int, category: String) {
+    override fun onContentButtonClick(postIdx: Int, category: String) {
         val action = GroupBuyingSearchFragmentDirections.actionGroupBuyingSearchFragmentToGroupBuyingDetailFragment(postIdx)
         findNavController().navigate(action)
     }

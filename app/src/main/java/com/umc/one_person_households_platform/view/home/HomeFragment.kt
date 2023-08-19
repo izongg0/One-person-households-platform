@@ -31,11 +31,17 @@ class HomeFragment : Fragment(), OnClickInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.home = this
+        init()
         setAdapter()
     }
 
+    // 초기 설정
+    private fun init() {
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.home = this
+    }
+
+    // 어댑터 설정
     private fun setAdapter() {
         val communityAdapter = HomeCommunityAdapter(this)
         val groupBuyingListAdapter = HomeGroupBuyingAdapter(this)
@@ -57,8 +63,8 @@ class HomeFragment : Fragment(), OnClickInterface {
     }
 
     // 더 보기 이동
-    fun onMoveButton(view: View) {
-        when(view.id) {
+    fun onMoveButtonClick(view: View) {
+        when (view.id) {
             R.id.tv_community_more_detail -> {
                 val action = HomeFragmentDirections.actionHomeFragmentToCommunityFragment("인기순")
                 findNavController().navigate(action)
@@ -75,8 +81,8 @@ class HomeFragment : Fragment(), OnClickInterface {
     }
 
     // 게시글 상세 화면 이동
-    override fun onClick(postIdx: Int, category: String) {
-        when(category) {
+    override fun onContentButtonClick(postIdx: Int, category: String) {
+        when (category) {
             "커뮤니티" -> {
                 val action = HomeFragmentDirections.actionHomeFragmentToPostdetailFragment(postIdx)
                 findNavController().navigate(action)

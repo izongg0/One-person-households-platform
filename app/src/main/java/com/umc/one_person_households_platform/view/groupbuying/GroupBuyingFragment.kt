@@ -35,6 +35,11 @@ class GroupBuyingFragment : Fragment(), OnClickInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        init()
+    }
+
+    // 초기 설정
+    private fun init() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.groupBuying = this
 
@@ -71,8 +76,14 @@ class GroupBuyingFragment : Fragment(), OnClickInterface {
         findNavController().navigate(R.id.action_groupBuyingFragment_to_groupBuyingSearchFragment)
     }
 
+    // 글쓰기 화면 이동
+    fun onWriteButtonClick() {
+        val action = GroupBuyingFragmentDirections.actionGroupBuyingFragmentToGroupBuyingWriteFragment()
+        findNavController().navigate(action)
+    }
+
     // 게시글 상세 화면 이동
-    override fun onClick(postIdx: Int, category: String) {
+    override fun onContentButtonClick(postIdx: Int, category: String) {
         val action = GroupBuyingFragmentDirections.actionGroupBuyingFragmentToGroupBuyingDetailFragment(postIdx)
         findNavController().navigate(action)
     }

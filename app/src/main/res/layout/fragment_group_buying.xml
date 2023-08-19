@@ -212,6 +212,7 @@
             android:layout_marginBottom="9dp"
             android:background="@drawable/btn_write"
             android:drawablePadding="5dp"
+            android:onClick="@{() -> groupBuying.onWriteButtonClick()}"
             android:paddingStart="10dp"
             android:paddingTop="7dp"
             android:paddingEnd="10dp"

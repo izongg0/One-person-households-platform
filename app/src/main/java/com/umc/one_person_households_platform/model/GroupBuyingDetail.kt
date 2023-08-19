@@ -13,7 +13,7 @@ data class GroupBuyingDetail(
     val message: String, // 안내 메시지
 
     @SerializedName("result")
-    val groupBuyingDetailContent: GroupBuyingDetailContent, // 게시글 리스트
+    val groupBuyingDetailContent: GroupBuyingDetailContent, // 게시글 상세 화면
 )
 
 data class GroupBuyingDetailContent(
