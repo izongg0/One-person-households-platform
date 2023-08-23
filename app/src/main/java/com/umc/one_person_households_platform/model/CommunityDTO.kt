@@ -26,7 +26,6 @@ data class CommunityPost(
 )
 
 
-
 // 커뮤니티 게시글 디테일 페이지
 data class CommunityDetailDTO(
 
@@ -36,19 +35,38 @@ data class CommunityDetailDTO(
     @SerializedName("result") val result: CommunityDetailContent
 )
 data class CommunityDetailContent(
-    @SerializedName("paths") val paths: List<String>,
-    @SerializedName("postIdx") val postIdx: Int,
-    @SerializedName("categoryIdx") val categoryIdx: Int,
-    @SerializedName("userIdx") val userIdx: Int,
-    @SerializedName("title") val title: String,
-    @SerializedName("viewCount") val viewCount: Int,
-    @SerializedName("likeCount") val likeCount: Int,
-    @SerializedName("createAt") val createAt: String,
-    @SerializedName("updateAt") val updateAt: String,
-    @SerializedName("url") val url: String,
-    @SerializedName("communityDetailIdx") val communityDetailIdx: Int,
-    @SerializedName("contents") val contents: String,
-    @SerializedName("comments") val comments: List<Int>
+    @SerializedName("paths")
+    val paths: List<String>,
+    @SerializedName("postIdx")
+    val postIdx: Int,
+    @SerializedName("categoryIdx")
+    val categoryIdx: Int,
+    @SerializedName("userIdx")
+    val userIdx: Int,
+    @SerializedName("title")
+    val title: String,
+    @SerializedName("viewCount")
+    val viewCount: Int,
+    @SerializedName("likeCount")
+    val likeCount: Int,
+    @SerializedName("heartCount")
+    val heartCount: Int,
+    @SerializedName("createAt")
+    val createAt: String, // You can use Timestamp if you're using a specific library for that
+    @SerializedName("updateAt")
+    val updateAt: String, // You can use Timestamp if you're using a specific library for that
+    @SerializedName("url")
+    val url: String,
+    @SerializedName("communityDetailIdx")
+    val communityDetailIdx: Int,
+    @SerializedName("contents")
+    val contents: String,
+    @SerializedName("comments")
+    val comments: List<Int>,
+    @SerializedName("liked")
+    var liked: Boolean,
+    @SerializedName("scraped")
+    var scraped: Boolean
 )
 
 // 댓글 불러오기
@@ -114,7 +132,9 @@ data class PostHeartDTO(
     val userIdx: Int
 
 )
-data class PostHeartResult(
+
+
+data class CommonPostResult(
     val isSuccess: String,
     val code: Int,
     val message: String,

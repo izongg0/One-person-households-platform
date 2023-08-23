@@ -105,6 +105,9 @@
         <action
             android:id="@+id/action_searchFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_postdetailFragment"
+            app:destination="@id/postdetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/recipemainFragment"
@@ -139,6 +142,10 @@
         <argument
             android:name="postIdx"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_postdetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
@@ -167,6 +174,14 @@
             android:id="@+id/action_recipedetailFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
         <argument
+            android:name="recipeIdx"
+            app:argType="integer" />
+        <argument
+            android:name="isScrap"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_recipedetailFragment_to_scrapFragment"
+            app:destination="@id/scrapFragment" />
             android:name="postIdx"
             app:argType="integer" />
     </fragment>
@@ -178,5 +193,8 @@
         <action
             android:id="@+id/action_scrapFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
+        <action
+            android:id="@+id/action_scrapFragment_to_recipedetailFragment"
+            app:destination="@id/recipedetailFragment" />
     </fragment>
 </navigation>

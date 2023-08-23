@@ -1,7 +1,7 @@
 package com.umc.one_person_households_platform.adapter
 
+
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
@@ -28,11 +28,12 @@ import com.umc.one_person_households_platform.network.ApiClient
 import com.umc.one_person_households_platform.view.community.CommunityFragment
 import com.umc.one_person_households_platform.view.community.CommunityFragmentDirections
 import com.umc.one_person_households_platform.view.community.PostdetailFragmentDirections
+import com.umc.one_person_households_platform.view.community.SearchFragmentDirections
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
+class CommunitySearchAdapter(var realpostlist: CommunityDTO) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -69,29 +70,33 @@ class CommunityCategoryAdapter(var realpostlist: CommunityDTO) :
             realpostlist!!.result[position].createAt
 
 
-
-
-        if(realpostlist!!.result[position].imagePath == "" || realpostlist!!.result[position].imagePath.isNullOrBlank()){}else{
-            view.findViewById<ImageView>(R.id.iv_headimg).setImageBitmap(stringToBitmap(realpostlist!!.result[position].imagePath))
-
-
-        }
-
-
-
+        Glide.with(view.context)
+            .load(realpostlist!!.result[position].imagePath)
+            .into(view.findViewById<ImageView>(R.id.iv_headimg))
+//        Glide.with(view.context)
+//            .asBitmap() // Load the image as a bitmap
+//            .load(realpostlist!!.result[position].imagePath)
+//            .into(object : CustomTarget<Bitmap>() {
+//                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+//                    // Here, 'resource' is the loaded Bitmap
+//
+//                    // Display the Bitmap in an ImageView
+//                    val imageView = view.findViewById<ImageView>(R.id.iv_headimg)
+//                    imageView.setImageBitmap(resource)
+//                }
+//
+//                override fun onLoadCleared(placeholder: Drawable?) {
+//                    // Optional: handle cleanup or placeholders
+//                }
+//            })
         view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.cl_postclick).setOnClickListener {
 
 
-            val action = CommunityFragmentDirections.actionCommunityFragmentToPostdetailFragment(realpostlist!!.result[position].postIdx)
+            val action = SearchFragmentDirections.actionSearchFragmentToPostdetailFragment(realpostlist!!.result[position].postIdx)
             view.findNavController().navigate(action)
 
 //            val navController = Navigation.findNavController(view)
 //            navController.navigate(R.id.action_communityFragment_to_postdetailFragment, bundle)
         }
-    }
-
-    fun stringToBitmap(encodedString: String?): Bitmap? {
-        val encodeByte: ByteArray = java.util.Base64.getDecoder().decode(encodedString)
-        return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
     }
 }

@@ -25,7 +25,7 @@ data class CommunityAddpostDTO(
     val contents: String,
 
     @SerializedName("paths")
-    val paths: MutableList<String>
+    val paths: List<String>
 )
 
  // 응답

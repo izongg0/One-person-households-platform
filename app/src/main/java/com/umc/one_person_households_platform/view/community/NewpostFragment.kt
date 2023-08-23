@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -30,6 +32,8 @@ import com.umc.one_person_households_platform.network.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
+import java.util.Base64
 
 class NewpostFragment : Fragment() {
 
@@ -83,8 +87,7 @@ class NewpostFragment : Fragment() {
             }
         }
 
-
-
+            var eximg = mutableListOf<String>("aaa","bbb")
 
         binding.tvAddbtn.setOnClickListener {
 
@@ -102,12 +105,13 @@ class NewpostFragment : Fragment() {
 
                 var postadd = CommunityAddpostDTO(
                     categoryid,
-                    2,
+                    4,
                     binding.etEdittitle.text.toString(),
                     binding.etEditcontent.text.toString(),
                     selectedImageUris
                 )
 
+                Log.d("rrrrrr",postadd.toString())
                 val apiService = ApiClient.create()
                 val call = apiService.addCommunityPost(postadd)
 
@@ -121,6 +125,8 @@ class NewpostFragment : Fragment() {
                             val result = response.body()
                             Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
                         } else {
+
+                            Log.d("rrrrrrr", "성공 결과: ${call.toString()}")
 
                         }
                     }
@@ -137,22 +143,7 @@ class NewpostFragment : Fragment() {
 
                 //데이터 저장
             }
-//            else if (binding.tvCatergory.text == "게시글의 주제를 선택해주세요") {
-//
-//                showAlert("주제를 선택해주세요")
-//
-//            } else if (binding.etEditcontent.text.isNullOrBlank()) {
-//                // 제목입력이 비어있을 때
-//
-//                showAlert("제목을 입력해주세요")
-//
-//
-//            } else if (binding.etEdittitle.text.isNullOrBlank()) {
-//                // 내용이 비어있을 때
-//                showAlert("내용을 5자 이상 입력해주세요.")
-//
-//
-//            }
+
         }
 
         binding.btnArrowBack.setOnClickListener {
@@ -195,6 +186,17 @@ class NewpostFragment : Fragment() {
 
     }
 
+    private fun getBitmapFromUri(uri: Uri): Bitmap? {
+        return try {
+            // URI를 통해 비트맵을 가져옵니다.
+            val bitmap = MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
+            bitmap
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
     private fun openGallery() {
 //        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 //        startActivityForResult(intent, PICK_IMAGE_REQUEST)
@@ -217,11 +219,25 @@ class NewpostFragment : Fragment() {
                 val clipData = data.clipData
                 for (i in 0 until clipData?.itemCount!!) {
                     val uri = clipData.getItemAt(i).uri
-                    selectedImageUris.add(uri.toString())
+                    var bitmap_imag = getBitmapFromUri(uri)
+                    var resized_bitmap = resizeBitmapWithAspectRatio(bitmap_imag!!,350,350,)
+
+                    var string_bitmap =bitmapToString(resized_bitmap!!)
+
+                    Log.d("iiimmage",string_bitmap.length.toString())
+
+
+                    selectedImageUris.add(string_bitmap!!)
+
                 }
             } else if (data?.data != null) {
                 val uri = data.data
-                selectedImageUris.add(uri!!.toString())
+                var bitmap_imag = getBitmapFromUri(uri!!)
+                var resized_bitmap = resizeBitmapWithAspectRatio(bitmap_imag!!,500,500,)
+
+                var string_bitmap =bitmapToString(resized_bitmap!!)
+
+                selectedImageUris.add(string_bitmap!!)
             }
 
             // 선택한 이미지들을 처리하는 로직을 추가할 수 있습니다.
@@ -233,6 +249,7 @@ class NewpostFragment : Fragment() {
             }
         }
 
+        Log.d("iiiiimage",selectedImageUris[0].length.toString())
         imageAdapter = AddPostImageAdapter(selectedImageUris)
         binding.rvImage.adapter = imageAdapter
         binding.rvImage.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL, false)
@@ -245,5 +262,39 @@ class NewpostFragment : Fragment() {
 ////            }
 //        }
     }
+
+
+
+    fun bitmapToString(bitmap: Bitmap): String {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+
+        val bytes = stream.toByteArray()
+
+        return Base64.getEncoder().encodeToString(bytes)
+    }
+
+
+    fun resizeBitmapWithAspectRatio(bitmap: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
+        val originalWidth = bitmap.width
+        val originalHeight = bitmap.height
+
+        val ratioX = maxWidth.toFloat() / originalWidth
+        val ratioY = maxHeight.toFloat() / originalHeight
+
+        val scaleFactor = if (ratioX < ratioY) ratioX else ratioY
+
+        val newWidth = (originalWidth * scaleFactor).toInt()
+        val newHeight = (originalHeight * scaleFactor).toInt()
+
+        Log.d("resizediiimg","$newWidth ㅇㅇㅇ $newHeight")
+        return Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true)
+    }
+
+
+    fun resizeBitmap(bitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true)
+    }
+
 }
 

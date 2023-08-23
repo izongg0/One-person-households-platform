@@ -7,7 +7,7 @@ data class RecipeDTO(
     val isSuccess: Boolean,
     val code: Int,
     val message: String,
-    val result: List<RecipeListItems>
+    val result: MutableList<RecipeListItems>
 )
 
 data class RecipeListItems(
@@ -48,8 +48,11 @@ data class RecipeDetailItems(
     val likeCount: Int,
     val createAt: String,
     val updateAt: String,
-    val url: String,
+    val url: String?,
     val recipeDetailIdx: Int,
+    val mainImageUrl: String,
     val contents: String,
-    val tag: String
+    val ingredients: String,
+    val description: String,
+    val scraped: Boolean
 )
