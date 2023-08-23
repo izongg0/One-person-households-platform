@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.community.CommentMorebtnFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:background="@drawable/add_post_category_radious">
+
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="삭제하기"
+            android:button="@null"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="21dp"
+
+            android:textSize="17sp"
+            android:textColor="@drawable/btn_category_select"
+            android:id="@+id/tv_chat"
+            />
+
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -79,7 +79,7 @@
             <TextView
                 android:id="@+id/tv_catergory"
                 android:layout_width="276dp"
-                android:layout_height="18dp"
+                android:layout_height="23dp"
                 android:layout_marginLeft="24dp"
                 android:text="게시글의 주제를 선택해주세요"
                 android:textColor="@color/black"
@@ -101,7 +101,7 @@
                 android:layout_height="1dp"
                 android:background="#C4C4C4"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="18dp"
+                android:layout_marginRight="35dp"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <TextView
@@ -161,9 +161,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:textSize="13sp"
-
+                android:paddingStart="12dp"
                 android:background="@drawable/et_style"
-                android:hint="    제목을 입력해주세요"
+                android:hint="제목을 입력해주세요"
 
                 android:layout_marginStart="19dp"
                 android:layout_marginEnd="19dp"
@@ -188,12 +188,14 @@
                 android:layout_height="175dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/et_style"
-                android:hint="    내용을 입력해주세요"
+                android:hint="내용을 입력해주세요"
+                android:paddingStart="12dp"
+
                 android:layout_marginStart="19dp"
                 android:layout_marginEnd="19dp"
                 android:textSize="13sp"
                 android:gravity="top"
-                android:paddingTop="8dp"
+                android:paddingTop="12dp"
 
                 />
 
