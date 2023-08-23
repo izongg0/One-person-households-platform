@@ -16,6 +16,7 @@
         />
 
     <ImageView
+        android:id="@+id/iv_comment_morebtn"
         android:layout_width="10dp"
         android:layout_height="20dp"
         android:src="@drawable/btn_community_more"

@@ -18,7 +18,26 @@
 
             android:background="@drawable/add_post_category_radious">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="수정하기"
+                android:button="@null"
+                android:gravity="center"
+                android:id="@+id/tv_report"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="21dp"
+                android:textSize="17sp"
+                android:textColor="@drawable/btn_category_select"
+                />
+            <LinearLayout
+                android:id="@+id/nav_division"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
 
+                android:background="#D9D9D9"
+                />
             <TextView
                 android:gravity="center"
                 android:layout_width="match_parent"
@@ -32,26 +51,8 @@
                 android:textColor="@drawable/btn_category_select"
                 android:id="@+id/tv_chat"
                 />
-            <LinearLayout
-                android:id="@+id/nav_division"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:orientation="horizontal"
 
-                android:background="#D9D9D9"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="신고하기"
-                android:button="@null"
-                android:gravity="center"
-                android:id="@+id/tv_report"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
-                android:textSize="17sp"
-                android:textColor="@drawable/btn_category_select"
-                />
+
 
 
 

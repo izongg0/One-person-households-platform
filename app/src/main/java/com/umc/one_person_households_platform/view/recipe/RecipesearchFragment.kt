@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
 import com.umc.one_person_households_platform.adapter.RecipeListAdapter
+import com.umc.one_person_households_platform.adapter.RecipeScrapAdapter
+import com.umc.one_person_households_platform.adapter.RecipeSearchAdapter
 import com.umc.one_person_households_platform.databinding.FragmentRecipesearchBinding
 import com.umc.one_person_households_platform.databinding.FragmentSearchBinding
 import com.umc.one_person_households_platform.model.CommunityDTO
@@ -27,7 +29,7 @@ import retrofit2.Response
 
 class RecipesearchFragment : Fragment() {
 
-    lateinit var postAdapter: RecipeListAdapter
+    lateinit var postAdapter: RecipeSearchAdapter
 
     private lateinit var
             binding: FragmentRecipesearchBinding //
@@ -83,7 +85,7 @@ class RecipesearchFragment : Fragment() {
                         binding.tvDescription.isVisible = false
                         binding.rvSearch.isVisible = true
 
-                        postAdapter = RecipeListAdapter(filteredPosts!!)
+                        postAdapter = RecipeSearchAdapter(filteredPosts!!)
                         binding.rvSearch.adapter = postAdapter
                         binding.rvSearch.layoutManager = LinearLayoutManager(requireContext())
 

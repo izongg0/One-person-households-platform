@@ -100,19 +100,23 @@ interface ApiClient {
     @POST("/app/comment/create")
     fun addCommunityComment(@Body commentData: CommentAddItems): Call<CommentAddResult>
 
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @DELETE("/app/comment/delete")
+    fun deleteComment(@Query("commentIdx") commentIdx: Int): Call<CommonPostResult>
+
     //게시글 삭제
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
-    @DELETE("/app/post/app/post/delete")
-    fun deletePost(@Body deleteItem: PostDeleteDTO): Call<PostDeleteItems>
+    @DELETE("/app/post/delete")
+    fun deletePost(@Query("postIdx") postIdx: Int): Call<CommonPostResult>
 
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @POST("/app/post/heart")
-    fun addHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+    fun addHeartPost(@Body scrapitem: PostHeartDTO): Call<CommonPostResult>
 
     // 게시글 공감하기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @POST("/app/post/heart/cancel")
-    fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<PostHeartResult>
+    fun cancelHeartPost(@Body scrapitem: PostHeartDTO): Call<CommonPostResult>
 
     // 레시피 목록 가져오기
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")

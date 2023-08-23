@@ -50,42 +50,7 @@ class CommunityFragment : Fragment() {
 
         callApiSort("최신순")
 
-//        when (selectedCategory) {
-//            "최신글" -> {
-//                binding.rbLatest.isChecked = true
-//                callApiSort("최신순")
-//
-//            }
-//            "인기글" -> {
-//
-//                binding.rbPopular.isChecked = true
-//                callApiSort("인기글")
-//
-//            }
-//            "맛집이야기" -> {
-//                binding.rbDelicious.isChecked = true
-//                callApi("맛집이야기")
-//
-//            }
-//            "질문있어요" -> {
-//
-//                binding.rbQuestion.isChecked = true
-//                callApi("질문있어요")
-//
-//            }
-//            "대화해요" -> {
-//
-//                binding.rbCommunicate.isChecked = true
-//                callApi("대화해요")
-//
-//            }
-//            "공유해요" -> {
-//
-//                binding.rbShare.isChecked = true
-//                callApi("공유해요")
-//
-//            }
-//        }
+
 
         latestbtn.setOnClickListener {
 //            selectedCategory = "최신순"

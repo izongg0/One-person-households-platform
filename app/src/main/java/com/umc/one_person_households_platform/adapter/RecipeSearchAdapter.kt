@@ -24,11 +24,12 @@ import com.umc.one_person_households_platform.model.RecipeScrapResponse
 import com.umc.one_person_households_platform.network.ApiClient
 import com.umc.one_person_households_platform.view.community.CommunityFragmentDirections
 import com.umc.one_person_households_platform.view.recipe.RecipemainFragmentDirections
+import com.umc.one_person_households_platform.view.recipe.RecipesearchFragmentDirections
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RecipeListAdapter(var recipelist: RecipeDTO) :
+class RecipeSearchAdapter(var recipelist: RecipeDTO) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -59,13 +60,31 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
         view.findViewById<TextView>(R.id.tv_scrapcount).text =
             recipelist!!.result[position].likeCount.toString()
 
-
 //        Glide.with(view.context).load(recipelist.result[position].imagePath).into(view.findViewById<ImageView>(R.id.iv_recipeimg))
-
-
 
         view.findViewById<ImageView>(R.id.iv_scrap).setOnClickListener {
 
+//            val apiService = ApiClient.create()
+//            val call = apiService.addCommunityPost(postadd)
+//
+//            call.enqueue(object : Callback<ApiResponse> {
+//                override fun onResponse(
+//                    call: Call<ApiResponse>,
+//                    response: Response<ApiResponse>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        // 성공적으로 응답이 도착한 경우
+//                        val result = response.body()
+//                        Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
+//                    } else {
+//
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+//                    Log.d("rrrrrrr", "오류 처리: ${t.toString()}")
+//                }
+//            })
 
         }
 
@@ -137,6 +156,7 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
                         response: Response<RecipeScrapResponse>
                     ) {
                         if (response.isSuccessful) {
+                            // 성공적으로 응답이 도착한 경우
                             val result = response.body()
                             Log.d("rrrrrrr", "성공 결과: ${result.toString()}")
                         } else {
@@ -157,16 +177,30 @@ class RecipeListAdapter(var recipelist: RecipeDTO) :
 
         view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.cl_click).setOnClickListener {
 
-
-            val action = RecipemainFragmentDirections.actionRecipemainFragmentToRecipedetailFragment(recipelist!!.result[position].postIdx,recipelist!!.result[position].likeStatus)
+//            val bundle = Bundle()
+//            bundle.putInt("recipe_post",recipelist!!.result[position].postIdx ) // 데이터 추가
+            val action = RecipesearchFragmentDirections.actionRecipesearchFragmentToRecipedetailFragment(recipelist!!.result[position].postIdx,recipelist!!.result[position].likeStatus)
             view.findNavController().navigate(action)
 
 
-
+//            val navController = Navigation.findNavController(view)
+//            navController.navigate(R.id.action_recipemainFragment_to_recipedetailFragment, bundle)
 
         }
 
 
+//        Glide.with(view.context)
+//            .load(recipelist!!.result.items[position].imagePath)
+//            .into(view.findViewById<ImageView>(R.id.iv_recipeimg))
 
+//        view.findViewById<TextView>(R.id.tv_posttitle).setOnClickListener {
+//
+//            val bundle = Bundle()
+//            bundle.putInt("this_post",recipelist!!.result.items[position].postIdx ) // 데이터 추가
+//
+//            val navController = Navigation.findNavController(view)
+//            navController.navigate(R.id.action_communityFragment_to_postdetailFragment, bundle)
+//
+//        }
     }
 }

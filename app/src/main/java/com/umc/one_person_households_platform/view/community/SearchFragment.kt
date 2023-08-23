@@ -16,6 +16,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umc.one_person_households_platform.R
 import com.umc.one_person_households_platform.adapter.CommunityCategoryAdapter
+import com.umc.one_person_households_platform.adapter.CommunitySearchAdapter
 import com.umc.one_person_households_platform.databinding.FragmentSearchBinding
 import com.umc.one_person_households_platform.model.CommunityDTO
 
@@ -28,7 +29,7 @@ import retrofit2.Response
 class SearchFragment : Fragment() {
 
 
-    lateinit var postAdapter: CommunityCategoryAdapter
+    lateinit var postAdapter: CommunitySearchAdapter
 
     private lateinit var
             binding: FragmentSearchBinding //
@@ -55,6 +56,17 @@ class SearchFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(s.toString() != ""){
+
+                    binding.ivRemove.isVisible = true
+                    binding.ivRemove.setOnClickListener {
+
+                        binding.etSearchArea.text.clear()
+                    }
+
+                }else{
+                    binding.ivRemove.isVisible = false
+                }
                 searchPosts(s.toString())
             }
 
@@ -79,7 +91,7 @@ class SearchFragment : Fragment() {
                         binding.tvDescription.isVisible = false
                         binding.rvSearch.isVisible = true
 
-                        postAdapter = CommunityCategoryAdapter(filteredPosts!!)
+                        postAdapter = CommunitySearchAdapter(filteredPosts!!)
                         binding.rvSearch.adapter = postAdapter
                         binding.rvSearch.layoutManager = LinearLayoutManager(requireContext())
 
