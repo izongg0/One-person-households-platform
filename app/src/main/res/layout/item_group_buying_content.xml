@@ -18,7 +18,7 @@
         android:id="@+id/cl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick='@{() -> event.onClick(content.postIdx ,"공동구매")}'
+        android:onClick='@{() -> event.onContentButtonClick(content.postIdx ,"공동구매")}'
         android:paddingBottom="8dp">
 
         <View

@@ -18,7 +18,7 @@
         android:id="@+id/cl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick='@{() -> event.onClick(community.postIdx, "커뮤니티")}'>
+        android:onClick='@{() -> event.onContentButtonClick(community.postIdx, "커뮤니티")}'>
 
         <TextView
             android:id="@+id/tv_classification"

@@ -31,6 +31,11 @@ class GroupBuyingDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        init()
+    }
+
+    // 초기 설정
+    private fun init() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.detail = this
 
@@ -40,7 +45,7 @@ class GroupBuyingDetailFragment : Fragment() {
     }
 
     // 뒤로 가기 버튼 클릭
-    fun onBackButton() {
+    fun onBackButtonClick() {
         findNavController().navigateUp()
     }
 

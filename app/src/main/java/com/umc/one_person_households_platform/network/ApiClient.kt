@@ -53,6 +53,11 @@ interface ApiClient {
         @Query("postIdx") postIdx: Int
     ): Response<GroupBuyingDetail>
 
+    // 공동 구매 글 생성
+    @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
+    @POST("app/post/create")
+    suspend fun addGroupBuyingWrite(@Body postData: GroupBuyingWritePost): Response<GroupBuyingWrite>
+
     // 커뮤니티 리스트 출력
     @Headers("X-ACCESS-TOKEN: ${BuildConfig.JWT_KEY}")
     @GET("/app/boards/community")

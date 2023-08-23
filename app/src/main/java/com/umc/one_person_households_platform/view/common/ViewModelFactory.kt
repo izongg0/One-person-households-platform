@@ -3,6 +3,8 @@ package com.umc.one_person_households_platform.view.common
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.umc.one_person_households_platform.network.ApiClient
+import com.umc.one_person_households_platform.repository.groupBuyingWrite.GroupBuyingWriteRemoteDataSource
+import com.umc.one_person_households_platform.repository.groupBuyingWrite.GroupBuyingWriteRepository
 import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRemoteDataSource
 import com.umc.one_person_households_platform.repository.groupbuying.GroupBuyingRepository
 import com.umc.one_person_households_platform.repository.groupbuyingdetail.GroupBuyingDetailRemoteDataSource
@@ -14,6 +16,7 @@ import com.umc.one_person_households_platform.repository.home.HomeRepository
 import com.umc.one_person_households_platform.view.groupbuying.GroupBuyingViewModel
 import com.umc.one_person_households_platform.view.groupbuyingdetail.GroupBuyingDetailViewModel
 import com.umc.one_person_households_platform.view.groupbuyingsearch.GroupBuyingSearchViewModel
+import com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteViewModel
 import com.umc.one_person_households_platform.view.home.HomeViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {
@@ -34,6 +37,10 @@ class ViewModelFactory : ViewModelProvider.Factory {
             modelClass.isAssignableFrom(GroupBuyingDetailViewModel::class.java) -> {
                 val repository = GroupBuyingDetailRepository(GroupBuyingDetailRemoteDataSource(ApiClient.create()))
                 GroupBuyingDetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(GroupBuyingWriteViewModel::class.java) -> {
+                val repository = GroupBuyingWriteRepository(GroupBuyingWriteRemoteDataSource(ApiClient.create()))
+                GroupBuyingWriteViewModel(repository) as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")

@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <data>
 
+        <variable
+            name="category"
+            type="com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteCategoryFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_group_buying_rounded">
+        android:background="@drawable/bg_common_more"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/tv_description"
@@ -27,68 +31,47 @@
 
         <TextView
             android:id="@+id/tv_ingredients"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
             android:layout_marginTop="25dp"
+            android:onClick='@{() -> category.onCategoryButton("식재료")}'
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:text="식재료"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
-        <ImageView
-            android:id="@+id/iv_ingredients_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="17dp"
-            android:src="@drawable/ic_group_buying_category_check"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_ingredients" />
-
         <TextView
             android:id="@+id/tv_household_goods"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
             android:layout_marginTop="20dp"
+            android:onClick='@{() -> category.onCategoryButton("생활용품")}'
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:text="생활용품"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_ingredients" />
 
-        <ImageView
-            android:id="@+id/iv_household_goods_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="17dp"
-            android:src="@drawable/ic_group_buying_category_check"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_household_goods" />
-
         <TextView
             android:id="@+id/tv_etc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
             android:layout_marginTop="20dp"
+            android:onClick='@{() -> category.onCategoryButton("기타")}'
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:text="기타"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_household_goods" />
-
-        <ImageView
-            android:id="@+id/iv_etc_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="17dp"
-            android:src="@drawable/ic_group_buying_category_check"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_etc" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
