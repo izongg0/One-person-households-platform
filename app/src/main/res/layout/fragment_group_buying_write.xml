@@ -5,6 +5,17 @@
 
     <data>
 
+        <variable
+            name="category"
+            type="String" />
+
+        <variable
+            name="count"
+            type="String" />
+
+        <variable
+            name="write"
+            type="com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="52dp"
+                android:onClick="@{() -> write.onBackButtonClick()}"
                 android:src="@drawable/btn_arrow_left" />
 
             <TextView
@@ -53,15 +65,17 @@
         <ScrollView
             android:id="@+id/sv_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="vertical"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_finish"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="0dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_category"
@@ -70,6 +84,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="20dp"
+                    android:onClick="@{() -> write.onCategoryButtonClick()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -78,11 +93,12 @@
                         android:id="@+id/tv_select_category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="공동구매 할 상품의 카테고리를 선택해주세요"
+                        android:text="@{category}"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="공동구매 할 상품의 카테고리를 선택해주세요" />
 
                     <ImageView
                         android:id="@+id/iv_arrow_right"
@@ -106,6 +122,50 @@
                     app:layout_constraintTop_toBottomOf="@id/cl_category" />
 
                 <TextView
+                    android:id="@+id/tv_photo_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="15dp"
+                    android:text="사진 (선택)"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+                <TextView
+                    android:id="@+id/tv_select_photo"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/bg_group_buying_rounded_grey"
+                    android:drawableTop="@drawable/btn_group_buying_write_camera"
+                    android:onClick="@{() -> write.onPhotoButtonClick()}"
+                    android:paddingStart="16dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="9dp"
+                    android:gravity="center"
+                    android:textColor="#C4C4C4"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_photo_description"
+                    tools:text="0/10" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_photo_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_select_photo"
+                    app:layout_constraintEnd_toEndOf="@id/et_title"
+                    app:layout_constraintStart_toEndOf="@id/tv_select_photo"
+                    app:layout_constraintTop_toTopOf="@id/tv_select_photo" />
+
+                <TextView
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,7 +175,7 @@
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view_2" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_select_photo" />
 
                 <EditText
                     android:id="@+id/et_title"
@@ -126,6 +186,7 @@
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
                     android:hint="제목을 입력해주세요"
+                    android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingTop="13dp"
                     android:paddingBottom="15dp"
@@ -156,6 +217,7 @@
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
                     android:hint="제품명을 입력해주세요"
+                    android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingTop="13dp"
                     android:paddingBottom="15dp"
@@ -186,6 +248,7 @@
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
                     android:hint="판매 링크를 입력해주세요"
+                    android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingTop="13dp"
                     android:paddingBottom="15dp"
@@ -215,9 +278,10 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
-                    android:drawableStart="@drawable/ic_group_buying_write_money"
+                    android:drawableStart="@drawable/ic_group_buying_won"
                     android:drawablePadding="3dp"
                     android:hint="가격을 입력해주세요"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     android:paddingTop="13dp"
                     android:paddingBottom="15dp"
@@ -254,8 +318,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="#C4C4C4"
+                        android:checked="true"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
+                        android:onClick="@{() -> write.onDeliveryFeeYesButtonClick()}"
                         android:text="유"
                         android:textColor="#868686"
                         android:textSize="13sp" />
@@ -267,6 +333,7 @@
                         android:buttonTint="#C4C4C4"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
+                        android:onClick="@{() -> write.onDeliveryFeeNoButtonClick()}"
                         android:text="무"
                         android:textColor="#868686"
                         android:textSize="13sp" />
@@ -280,9 +347,10 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
-                    android:drawableStart="@drawable/ic_group_buying_write_money"
+                    android:drawableStart="@drawable/ic_group_buying_won"
                     android:drawablePadding="3dp"
                     android:hint="배송비를 입력해주세요"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     android:paddingTop="13dp"
                     android:paddingBottom="15dp"
@@ -312,24 +380,26 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="19dp"
                     android:background="@drawable/bg_group_buying_rounded_grey"
+                    android:onClick="@{() -> write.onCountButtonClick()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_people">
 
                     <TextView
-                        android:id="@+id/et_people"
+                        android:id="@+id/tv_people_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center"
-                        android:text="-"
-                        android:textColor="#C4C4C4"
+                        android:text="@{count}"
+                        android:textColor="@color/black"
                         android:textSize="17sp"
                         app:layout_constraintBottom_toBottomOf="@id/cl_people"
                         app:layout_constraintEnd_toEndOf="@id/cl_people"
                         app:layout_constraintStart_toStartOf="@id/cl_people"
-                        app:layout_constraintTop_toTopOf="@id/cl_people" />
+                        app:layout_constraintTop_toTopOf="@id/cl_people"
+                        tools:text="-" />
 
                     <ImageView
                         android:id="@+id/iv_arrow_bottom"
@@ -338,7 +408,7 @@
                         android:layout_marginStart="2dp"
                         android:src="@drawable/btn_arrow_bottom"
                         app:layout_constraintBottom_toBottomOf="@id/cl_people"
-                        app:layout_constraintStart_toEndOf="@id/et_people"
+                        app:layout_constraintStart_toEndOf="@id/tv_people_count"
                         app:layout_constraintTop_toTopOf="@id/cl_people" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -367,51 +437,109 @@
 
                     <EditText
                         android:id="@+id/et_dead_line_year"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_group_buying_rounded_grey"
+                        android:gravity="center"
                         android:hint="YYYY"
-                        android:paddingStart="44dp"
+                        android:inputType="number"
+                        android:maxLength="4"
                         android:paddingTop="14dp"
-                        android:paddingEnd="44dp"
                         android:paddingBottom="14dp"
                         android:textColorHint="#C4C4C4"
                         android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/et_dead_line_month"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
                         android:id="@+id/et_dead_line_month"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_group_buying_rounded_grey"
+                        android:gravity="center"
                         android:hint=" MM "
-                        android:paddingStart="44dp"
+                        android:inputType="number"
+                        android:maxLength="2"
                         android:paddingTop="14dp"
-                        android:paddingEnd="44dp"
                         android:paddingBottom="14dp"
                         android:textColorHint="#C4C4C4"
                         android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/et_dead_line_day"
                         app:layout_constraintStart_toEndOf="@id/et_dead_line_year"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
                         android:id="@+id/et_dead_line_day"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_group_buying_rounded_grey"
+                        android:gravity="center"
                         android:hint=" DD "
-                        android:paddingStart="44dp"
+                        android:inputType="number"
+                        android:maxLength="2"
                         android:paddingTop="14dp"
-                        android:paddingEnd="44dp"
                         android:paddingBottom="14dp"
                         android:textColorHint="#C4C4C4"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/et_dead_line_month"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="내용"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl_dead_line" />
+
+                <EditText
+                    android:id="@+id/et_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="19dp"
+                    android:background="@drawable/bg_group_buying_rounded_grey"
+                    android:gravity="top|left"
+                    android:hint="내용을 입력 해주세요"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#C4C4C4"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/tv_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_write"
+            android:gravity="center"
+            android:onClick="@{() -> write.onCheckButtonClick()}"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:text="작성 완료"
+            android:textColor="@drawable/btn_addpost_enable"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sv_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

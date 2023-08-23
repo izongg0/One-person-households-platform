@@ -52,12 +52,15 @@
         <action
             android:id="@+id/action_groupBuyingFragment_to_groupBuyingDetailFragment"
             app:destination="@id/groupBuyingDetailFragment" />
+        <action
+            android:id="@+id/action_groupBuyingFragment_to_groupBuyingWriteFragment"
+            app:destination="@id/groupBuyingWriteFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/groupBuyingSearchFragment"
         android:name="com.umc.one_person_households_platform.view.groupbuyingsearch.GroupBuyingSearchFragment"
-        android:label="GroupBuyingSearchFragment" >
+        android:label="GroupBuyingSearchFragment">
         <action
             android:id="@+id/action_groupBuyingSearchFragment_to_groupBuyingDetailFragment"
             app:destination="@id/groupBuyingDetailFragment" />
@@ -71,6 +74,28 @@
             android:name="postIdx"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/groupBuyingWriteFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteFragment"
+        android:label="GroupBuyingWriteFragment" >
+        <action
+            android:id="@+id/action_groupBuyingWriteFragment_to_groupBuyingWriteCategoryFragment"
+            app:destination="@id/groupBuyingWriteCategoryFragment" />
+        <action
+            android:id="@+id/action_groupBuyingWriteFragment_to_groupBuyingWriteCountFragment"
+            app:destination="@id/groupBuyingWriteCountFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/groupBuyingWriteCategoryFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteCategoryFragment"
+        android:label="GroupBuyingWriteCategoryFragment" />
+
+    <dialog
+        android:id="@+id/groupBuyingWriteCountFragment"
+        android:name="com.umc.one_person_households_platform.view.groupbuyingwrite.GroupBuyingWriteCountFragment"
+        android:label="GroupBuyingWriteCountFragment" />
 
     <fragment
         android:id="@+id/communityFragment"
@@ -151,7 +176,7 @@
     <fragment
         android:id="@+id/recipesearchFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.RecipesearchFragment"
-        android:label="RecipesearchFragment" >
+        android:label="RecipesearchFragment">
         <action
             android:id="@+id/action_recipesearchFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
@@ -162,7 +187,7 @@
     <fragment
         android:id="@+id/recipedetailFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.RecipedetailFragment"
-        android:label="RecipedetailFragment" >
+        android:label="RecipedetailFragment">
         <action
             android:id="@+id/action_recipedetailFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
@@ -174,7 +199,7 @@
         android:id="@+id/scrapFragment"
         android:name="com.umc.one_person_households_platform.view.recipe.ScrapFragment"
         android:label="fragment_scrap"
-        tools:layout="@layout/fragment_scrap" >
+        tools:layout="@layout/fragment_scrap">
         <action
             android:id="@+id/action_scrapFragment_to_recipemainFragment"
             app:destination="@id/recipemainFragment" />
